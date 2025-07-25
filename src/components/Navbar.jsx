@@ -1,6 +1,6 @@
 import { Menu } from "lucide-react"; // Importing Menu icon from lucide-react
 
-export default function Navbar() {
+export default function Navbar({ active }) {
   return (
     <nav className="bg-[#0E4C52] text-[#ACB7C6] px-[120px] py-[26px] flex justify-between items-center gap-[40px]">
       {/* Logo */}
@@ -12,7 +12,13 @@ export default function Navbar() {
 
       {/* Navigation Links */}
       <ul className="flex items-center gap-[70px] text-[16px]">
-        <li className="hover:text-[#fff] cursor-pointer">
+        <li
+          className={`${
+            active === "certifications"
+              ? "text-white"
+              : "text-[#ACB7C6] hover:text-white"
+          }`}
+        >
           Certification & Training
         </li>
         <li className="hover:text-[#fff] cursor-pointer">Job Trends Tracker</li>
