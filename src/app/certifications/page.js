@@ -3,16 +3,9 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
+import TagSearch from "@/components/TagSearch";
 import Image from "next/image";
 import { useState } from "react";
-
-const recommendedTags = [
-  "ui/ux",
-  "data",
-  "machine learning",
-  "system",
-  "business",
-];
 
 export default function CertificationsPage() {
   const [query, setQuery] = useState("");
@@ -45,22 +38,11 @@ export default function CertificationsPage() {
             <SearchBar query={query} setQuery={setQuery} />
 
             {/* Tag Search */}
-            <div className="mt-6">
-              <h2 className="font-semibold mb-3 text-sm text-black">
-                Rekomendasi Pencarian
-              </h2>
-              <div className="flex flex-wrap gap-3">
-                {recommendedTags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 border border-gray-300 text-sm rounded-full text-[#35414D] bg-white hover:bg-gray-100 cursor-pointer"
-                    onClick={() => setQuery(tag)}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <TagSearch
+              tags={["ui/ux", "data", "machine learning", "system", "business"]}
+              onSelect={(tag) => setQuery(tag)}
+              tagClass="border-[#ACB7C6] text-black"
+            />
           </div>
         </section>
       </main>
