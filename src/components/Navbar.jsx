@@ -1,8 +1,10 @@
+"use client";
+
 import { Menu } from "lucide-react"; // Importing Menu icon from lucide-react
 
 export default function Navbar({ active }) {
   return (
-    <nav className="bg-[#0E4C52] text-[#ACB7C6] px-[120px] py-[26px] flex justify-between items-center gap-[40px]">
+    <nav className="bg-[#0E4C52] text-gray-400 px-[120px] py-[26px] flex justify-between items-center gap-[40px] fixed top-0 left-0 w-full z-50 shadow">
       {/* Logo */}
       <img
         src="/images/logo-edgeup.png"

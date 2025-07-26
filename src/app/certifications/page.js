@@ -6,14 +6,22 @@ import SearchBar from "@/components/SearchBar";
 import TagSearch from "@/components/TagSearch";
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function CertificationsPage() {
   const [query, setQuery] = useState("");
+  const router = useRouter();
+
+  const handleSearch = () => {
+    if (query.trim() !== "") {
+      router.push(`/certifications/${encodeURIComponent(query)}`);
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar active="certifications" />
-      <main className="flex-grow bg-gray-100">
+      <main className="flex-grow bg-gray-100 pt-20">
         <section className="py-12 px-4 flex flex-col items-center text-center">
           {/* Banner */}
           <div className="w-full max-w-[1040px] h-[160px] relative rounded overflow-hidden mb-10">
@@ -35,12 +43,21 @@ export default function CertificationsPage() {
 
           <div className="w-full max-w-3xl text-left">
             {/* Search Input */}
-            <SearchBar query={query} setQuery={setQuery} />
+            <SearchBar
+              query={query}
+              setQuery={setQuery}
+              onSearch={(keyword) =>
+                router.push(`/certifications/${encodeURIComponent(keyword)}`)
+              }
+            />
 
             {/* Tag Search */}
             <TagSearch
               tags={["ui/ux", "data", "machine learning", "system", "business"]}
-              onSelect={(tag) => setQuery(tag)}
+              onSelect={(tag) => {
+                setQuery(tag);
+                router.push(`/certifications/${encodeURIComponent(tag)}`);
+              }}
               tagClass="border-[#ACB7C6] text-black"
             />
           </div>
