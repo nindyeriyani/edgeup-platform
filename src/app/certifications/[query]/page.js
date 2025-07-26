@@ -8,6 +8,8 @@ import FilterSidebar from "@/components/FilterSidebar";
 import TrainingCard from "@/components/TrainingCard";
 import trainings from "@/data/mockTraining";
 import Image from "next/image";
+import Link from "next/link";
+import slugify from "slugify";
 import { useState } from "react";
 
 export default function CertificationSearchResultPage() {
@@ -63,7 +65,14 @@ export default function CertificationSearchResultPage() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {trainings.map((training, index) => (
-                  <TrainingCard key={index} data={training} />
+                  <Link
+                    key={index}
+                    href={`/certifications/detail/${slugify(training.title, {
+                      lower: true,
+                    })}`}
+                  >
+                    <TrainingCard data={training} />
+                  </Link>
                 ))}
               </div>
             </div>

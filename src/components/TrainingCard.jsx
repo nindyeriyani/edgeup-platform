@@ -1,6 +1,7 @@
-// components/TrainingCard.jsx
 import { Share2 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import slugify from "slugify";
 
 export default function TrainingCard({ data }) {
   return (
@@ -14,7 +15,7 @@ export default function TrainingCard({ data }) {
           className="object-cover p-2 w-full h-full"
         />
         {data.recommended && (
-          <span className="absolute top-3 left-3 bg-white text-xs font-semibold text-[#13171B] px-2 py-1 rounded shadow">
+          <span className="absolute top-3 left-3 bg-white text-xs font-normal text-[#13171B] px-2 py-1 rounded shadow">
             Recommended
           </span>
         )}
