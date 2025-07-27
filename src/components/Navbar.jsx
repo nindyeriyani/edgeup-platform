@@ -28,7 +28,7 @@ export default function Navbar({ active }) {
         </li>
         <li
           className={`${
-            active === "trends"
+            active === "job-trends"
               ? "text-white"
               : "text-[#ACB7C6] hover:text-white"
           }`}
