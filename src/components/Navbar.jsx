@@ -26,15 +26,6 @@ export default function Navbar({ active }) {
         >
           Certification & Training
         </li>
-        <li className="hover:text-[#fff] cursor-pointer">Job Trends Tracker</li>
-        <li 
-          className={`${
-            active === "stories"
-              ? "text-white"
-              : "text-[#ACB7C6] hover:text-white"
-          }`}
-        > Career Stories
-        </li>
         <li
           className={`${
             active === "job-trends"
@@ -44,7 +35,17 @@ export default function Navbar({ active }) {
         >
           Job Trends Tracker
         </li>
-        <li className="hover:text-[#fff] cursor-pointer">Career Stories</li>
+        <li
+          className={`${
+            active === "stories"
+              ? "text-white"
+              : "text-[#ACB7C6] hover:text-white"
+          }`}
+        >
+          {" "}
+          Career Stories
+        </li>
+
         <li className="hover:text-[#fff] cursor-pointer">Career Roadmap</li>
       </ul>
 
