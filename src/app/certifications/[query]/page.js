@@ -1,19 +1,33 @@
 // app/certifications/page.jsx
 "use client";
 
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
 import FilterSidebar from "@/components/FilterSidebar";
 import TrainingCard from "@/components/TrainingCard";
-import trainings from "@/data/mockTraining";
+import ErrorState from "@/components/ErrorState";
 import Image from "next/image";
 import Link from "next/link";
 import slugify from "slugify";
-import { useState } from "react";
 
 export default function CertificationSearchResultPage() {
   const [query, setQuery] = useState("SQL untuk Data Analyst");
+  const [trainings, setTrainings] = useState([]);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    try {
+      // Simulasi fetch data
+      const data = require("@/data/mockTraining"); // seolah fetch
+      setTrainings(data.default || data);
+    } catch (e) {
+      setError(true);
+    }
+  }, []);
+
+  if (error) return <ErrorState />;
 
   return (
     <div className="flex flex-col min-h-screen">

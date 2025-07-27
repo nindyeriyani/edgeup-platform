@@ -1,44 +1,47 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="bg-[#13171B] text-white px-8 py-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
         {/* Left Section */}
-        <div className="space-y-6">
+        <div className="space-y-5">
           {/* Logo */}
-          <img
+          <Image
             src="/images/logo-edgeup.png"
             alt="Logo EdgeUp"
-            className="w-[152px] h-[36px] mb-13"
+            width={152}
+            height={36}
+            className="mb-16"
           />
 
           {/* Social Icons */}
-          <div className="flex space-x-4">
+          <div className="flex space-x-3">
             <a href="#">
-              <img
+              <Image
                 src="/images/icon-linkedin.png"
                 alt="LinkedIn"
-                className="w-[24px] h-[24px]"
+                width={20}
+                height={20}
               />
             </a>
             <a href="#">
-              <img
+              <Image
                 src="/images/icon-instagram.png"
                 alt="Instagram"
-                className="w-[24px] h-[24px]"
+                width={20}
+                height={20}
               />
             </a>
             <a href="#">
-              <img
-                src="/images/icon-x.png"
-                alt="X"
-                className="w-[24px] h-[24px]"
-              />
+              <Image src="/images/icon-x.png" alt="X" width={20} height={20} />
             </a>
             <a href="#">
-              <img
+              <Image
                 src="/images/icon-mail.png"
                 alt="Mail"
-                className="w-[24px] h-[24px]"
+                width={20}
+                height={20}
               />
             </a>
           </div>

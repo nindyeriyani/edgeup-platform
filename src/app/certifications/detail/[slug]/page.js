@@ -3,7 +3,7 @@
 import { use } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import TagSearch from "@/components/TagSearch";
+import TagSearch from "@/components/Tag";
 import Button from "@/components/Button";
 import Image from "next/image";
 import {
