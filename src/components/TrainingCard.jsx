@@ -1,11 +1,12 @@
+"use client"
+
 import { Share2 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-import slugify from "slugify";
 
 export default function TrainingCard({ data }) {
   return (
     <div className="bg-white border border-[#E0E0E0] rounded-md shadow-sm overflow-hidden">
+      {/* Preview Image Course */}
       <div className="relative h-[140px]">
         <Image
           src={data.image}
@@ -20,12 +21,16 @@ export default function TrainingCard({ data }) {
           </span>
         )}
       </div>
+
+      {/* Course Info  */}
       <div className="p-4 flex flex-col gap-2">
         <div className="flex flex-row items-center gap-2 mb-2">
-          <img
+          <Image
             src={data.logo}
             alt={`${data.provider} logo`}
-            className="w-[40px] h-[40px] rounded-full"
+            width={40}
+            height={40}
+            className="rounded-full"
           />
           <p className="text-sm text-[#5B5B5B] font-medium">{data.provider}</p>
         </div>

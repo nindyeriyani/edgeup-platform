@@ -3,7 +3,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
-import TagSearch from "@/components/TagSearch";
+import TagSearch from "@/components/Tag";
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -11,12 +11,6 @@ import { useRouter } from "next/navigation";
 export default function CertificationsPage() {
   const [query, setQuery] = useState("");
   const router = useRouter();
-
-  const handleSearch = () => {
-    if (query.trim() !== "") {
-      router.push(`/certifications/${encodeURIComponent(query)}`);
-    }
-  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -52,14 +46,25 @@ export default function CertificationsPage() {
             />
 
             {/* Tag Search */}
-            <TagSearch
-              tags={["ui/ux", "data", "machine learning", "system", "business"]}
-              onSelect={(tag) => {
-                setQuery(tag);
-                router.push(`/certifications/${encodeURIComponent(tag)}`);
-              }}
-              tagClass="border-[#ACB7C6] text-black"
-            />
+            <div className="flex flex-col mt-8">
+              <h2 className="font-semibold text-sm text-black">
+                Rekomendasi Pencarian
+              </h2>
+              <TagSearch
+                tags={[
+                  "ui/ux",
+                  "data",
+                  "machine learning",
+                  "system",
+                  "business",
+                ]}
+                onSelect={(tag) => {
+                  setQuery(tag);
+                  router.push(`/certifications/${encodeURIComponent(tag)}`);
+                }}
+                tagClass="border-[#ACB7C6] text-black"
+              />
+            </div>
           </div>
         </section>
       </main>

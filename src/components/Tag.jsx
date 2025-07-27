@@ -1,17 +1,13 @@
 "use client";
 
-export default function TagSearch({
-  title = "Rekomendasi Pencarian",
+export default function Tag({
   tags = [],
   onSelect,
   tagClass = "",
   interactive = true, // default: bisa diklik
 }) {
   return (
-    <div className="mt-6">
-      {title && (
-        <h2 className="font-semibold mb-3 text-sm text-black">{title}</h2>
-      )}
+    <div className="mt-3">
       <ul className="flex flex-wrap gap-3 list-none p-0 m-0">
         {tags.map((tag, index) => (
           <li

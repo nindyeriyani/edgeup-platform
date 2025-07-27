@@ -10,7 +10,7 @@ const suggestions = [
 ];
 
 export default function SearchBar({ query, setQuery }) {
-  const [isFocused, setIsFocused] = useState(false); // tambahkan state focus
+  const [isFocused, setIsFocused] = useState(false);
 
   const filtered = suggestions.filter((item) =>
     item.toLowerCase().includes(query.toLowerCase())
@@ -26,7 +26,7 @@ export default function SearchBar({ query, setQuery }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsFocused(true)}
-          onBlur={() => setTimeout(() => setIsFocused(false), 100)} // timeout untuk menghindari klik dropdown langsung menutup
+          onBlur={() => setTimeout(() => setIsFocused(false), 100)}
         />
         {query.length > 0 ? (
           <X
@@ -34,7 +34,7 @@ export default function SearchBar({ query, setQuery }) {
             onClick={() => setQuery("")}
           />
         ) : null}
-        <Search className="w-4 h-4 text-gray-500 cursor-pointer" />
+        <Search className="w-4 h-4 text-gray-500 cursor-pointer" /> 
       </div>
 
       {/* Dropdown Results */}

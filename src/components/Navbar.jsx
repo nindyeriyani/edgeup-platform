@@ -1,15 +1,18 @@
 "use client";
 
 import { Menu } from "lucide-react"; // Importing Menu icon from lucide-react
+import Image from "next/image";
 
 export default function Navbar({ active }) {
   return (
     <nav className="bg-[#0E4C52] text-gray-400 px-[120px] py-[26px] flex justify-between items-center gap-[40px] fixed top-0 left-0 w-full z-50 shadow">
       {/* Logo */}
-      <img
+      <Image
         src="/images/logo-edgeup.png"
         alt="Logo EdgeUp"
-        className="w-[152px] h-[36px]"
+        width={152}
+        height={36}
+        className="cursor-pointer"
       />
 
       {/* Navigation Links */}
@@ -32,6 +35,16 @@ export default function Navbar({ active }) {
           }`}
         > Career Stories
         </li>
+        <li
+          className={`${
+            active === "trends"
+              ? "text-white"
+              : "text-[#ACB7C6] hover:text-white"
+          }`}
+        >
+          Job Trends Tracker
+        </li>
+        <li className="hover:text-[#fff] cursor-pointer">Career Stories</li>
         <li className="hover:text-[#fff] cursor-pointer">Career Roadmap</li>
       </ul>
 
