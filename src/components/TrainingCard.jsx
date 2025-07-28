@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
 import { Share2 } from "lucide-react";
 import Image from "next/image";
 
 export default function TrainingCard({ data }) {
   return (
-    <div className="bg-white border border-[#E0E0E0] rounded-md shadow-sm overflow-hidden">
+    <div className="bg-white border border-[#E0E0E0] rounded-md shadow-sm overflow-hidden min-h-[420px] flex flex-col justify-between">
       {/* Preview Image Course */}
       <div className="relative h-[140px]">
         <Image
@@ -22,8 +22,8 @@ export default function TrainingCard({ data }) {
         )}
       </div>
 
-      {/* Course Info  */}
-      <div className="p-4 flex flex-col gap-2">
+      {/* Course Info */}
+      <div className="p-4 flex flex-col gap-2 flex-1">
         <div className="flex flex-row items-center gap-2 mb-2">
           <Image
             src={data.logo}
@@ -35,15 +35,15 @@ export default function TrainingCard({ data }) {
           <p className="text-sm text-[#5B5B5B] font-medium">{data.provider}</p>
         </div>
 
-        <h3 className="text-base font-semibold text-black leading-tight">
+        <h3 className="text-base font-semibold text-black leading-tight line-clamp-2">
           {data.title}
         </h3>
-        <p className="text-sm text-[#5B5B5B]">{data.description}</p>
-        <p className="text-sm text-[#5B5B5B]">
-          Durasi pelatihan: {data.duration}
+        <p className="text-sm text-[#5B5B5B] line-clamp-3">
+          {data.description}
         </p>
-        <div className="flex justify-between items-center mt-2">
-          <p className="text-[#2A72A5] font-semibold">{data.price}</p>
+
+        {/* Spacer + Share */}
+        <div className="flex justify-between items-end mt-auto">
           <div className="p-2 border rounded-lg text-[#0BB0BF]">
             <Share2 className="w-4 h-4 text-[#0BB0BF] cursor-pointer" />
           </div>

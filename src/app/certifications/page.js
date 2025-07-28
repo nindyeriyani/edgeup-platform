@@ -39,9 +39,10 @@ export default function CertificationsPage() {
             {/* Search Input */}
             <SearchBar
               query={query}
-              setQuery={setQuery}
+              setQuery={setQuery} //isi input search-nya
               onSearch={(keyword) =>
-                router.push(`/certifications/${encodeURIComponent(keyword)}`)
+                router.push(`/certifications/${encodeURIComponent(keyword)}`) //Fungsi ini dipanggil ketika user menekan Enter atau klik tombol search.
+                // encodeURIComponent() digunakan agar spasi atau karakter khusus dalam keyword tetap valid di URL
               }
             />
 

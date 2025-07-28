@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Search, X } from "lucide-react";
 
@@ -9,7 +11,7 @@ const suggestions = [
   "Machine Learning Career Path",
 ];
 
-export default function SearchBar({ query, setQuery }) {
+export default function SearchBar({ query, setQuery, onSearch }) {
   const [isFocused, setIsFocused] = useState(false);
 
   const filtered = suggestions.filter((item) =>
@@ -34,7 +36,10 @@ export default function SearchBar({ query, setQuery }) {
             onClick={() => setQuery("")}
           />
         ) : null}
-        <Search className="w-4 h-4 text-gray-500 cursor-pointer" /> 
+        <Search
+          className="w-4 h-4 text-gray-500 cursor-pointer"
+          onClick={() => onSearch && onSearch(query)}
+        />
       </div>
 
       {/* Dropdown Results */}

@@ -1,22 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function FilterSidebar() {
+export default function FilterSidebar({ onChange }) {
   const [levels, setLevels] = useState([]);
-  const [prices, setPrices] = useState([]);
 
   const handleLevelChange = (value) => {
-    setLevels((prev) =>
-      prev.includes(value) ? prev.filter((l) => l !== value) : [...prev, value]
-    );
+    const updated = levels.includes(value)
+      ? levels.filter((l) => l !== value)
+      : [...levels, value];
+    setLevels(updated);
   };
 
-  const handlePriceChange = (value) => {
-    setPrices((prev) =>
-      prev.includes(value) ? prev.filter((p) => p !== value) : [...prev, value]
-    );
-  };
+  // Kirim ke parent saat ada perubahan level
+  useEffect(() => {
+    onChange && onChange({ levels });
+  }, [levels]);
 
   return (
     <aside>
@@ -30,35 +29,11 @@ export default function FilterSidebar() {
             <label key={level} className="flex items-center gap-2">
               <input
                 type="checkbox"
-                value={level}
-                checked={levels.includes(level)}
-                onChange={() => handleLevelChange(level)}
+                value={level.toLowerCase()}
+                checked={levels.includes(level.toLowerCase())}
+                onChange={() => handleLevelChange(level.toLowerCase())}
               />
               {level}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      {/* Harga */}
-      <div>
-        <h4 className="font-medium mb-2 text-sm text-black">Harga</h4>
-        <div className="space-y-2 text-sm text-gray-800">
-          {[
-            "Gratis",
-            "<Rp1.000.000",
-            "Rp1.000.000-Rp5.000.000",
-            "Rp5.000.000-Rp10.000.000",
-            ">Rp10.000.000",
-          ].map((price) => (
-            <label key={price} className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                value={price}
-                checked={prices.includes(price)}
-                onChange={() => handlePriceChange(price)}
-              />
-              {price}
             </label>
           ))}
         </div>

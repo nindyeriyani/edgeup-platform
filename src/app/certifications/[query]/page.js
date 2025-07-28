@@ -1,7 +1,7 @@
-// app/certifications/page.jsx
 "use client";
 
 import { useEffect, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
@@ -13,25 +13,57 @@ import Link from "next/link";
 import slugify from "slugify";
 
 export default function CertificationSearchResultPage() {
-  const [query, setQuery] = useState("SQL untuk Data Analyst");
-  const [trainings, setTrainings] = useState([]);
+  const router = useRouter();
+  const params = useParams();
+  const query = decodeURIComponent(params.query || "");
+
+  const [searchInput, setSearchInput] = useState(query);
+  const [allTrainings, setAllTrainings] = useState([]);
+  const [filters, setFilters] = useState({ levels: [] });
   const [error, setError] = useState(false);
 
+  // Fetch all training data
   useEffect(() => {
     try {
-      // Simulasi fetch data
-      const data = require("@/data/mockTraining"); // seolah fetch
-      setTrainings(data.default || data);
+      const data = require("@/data/mockTraining");
+      setAllTrainings(data.default || data);
     } catch (e) {
+      console.error("Failed to load training data", e);
       setError(true);
     }
   }, []);
+
+  // Update input value when URL query changes
+  useEffect(() => {
+    setSearchInput(query);
+  }, [query]);
+
+  // Normalization helper
+  function normalize(text) {
+    return text.toLowerCase().replace(/[^a-z0-9]+/g, "");
+  }
+
+  // Filter trainings
+  const filteredTrainings = allTrainings.filter((item) => {
+    const normalizedTitle = normalize(item.title);
+    const normalizedQuery = normalize(query);
+
+    const matchQuery =
+      normalizedTitle.includes(normalizedQuery) || query === ""; // jika query kosong, tampilkan semua
+
+    const matchLevel =
+      filters.levels.length === 0 ||
+      filters.levels.includes(item.level?.toLowerCase());
+
+    return matchQuery && matchLevel;
+  });
 
   if (error) return <ErrorState />;
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar active="certifications" />
+
       <main className="flex-grow bg-gray-100 pt-20">
         <section className="py-12 px-4 max-w-7xl mx-auto">
           {/* Heading */}
@@ -47,8 +79,8 @@ export default function CertificationSearchResultPage() {
           {/* Search Bar */}
           <div className="mb-8">
             <SearchBar
-              query={query}
-              setQuery={setQuery}
+              query={searchInput}
+              setQuery={setSearchInput}
               onSearch={(keyword) =>
                 router.push(`/certifications/${encodeURIComponent(keyword)}`)
               }
@@ -58,7 +90,11 @@ export default function CertificationSearchResultPage() {
           {/* Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-10">
             {/* Filter Sidebar */}
-            <FilterSidebar />
+            <FilterSidebar
+              onChange={(newFilters) =>
+                setFilters((prev) => ({ ...prev, ...newFilters }))
+              }
+            />
 
             {/* Results */}
             <div>
@@ -77,22 +113,31 @@ export default function CertificationSearchResultPage() {
                   />
                 </div>
               </div>
+
+              {/* Card Results */}
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {trainings.map((training, index) => (
-                  <Link
-                    key={index}
-                    href={`/certifications/detail/${slugify(training.title, {
-                      lower: true,
-                    })}`}
-                  >
-                    <TrainingCard data={training} />
-                  </Link>
-                ))}
+                {filteredTrainings.length > 0 ? (
+                  filteredTrainings.map((training, index) => (
+                    <Link
+                      key={index}
+                      href={`/certifications/detail/${slugify(training.title, {
+                        lower: true,
+                      })}?from=${encodeURIComponent(query)}`}
+                    >
+                      <TrainingCard data={training} />
+                    </Link>
+                  ))
+                ) : (
+                  <p className="text-center text-gray-500">
+                    Tidak ada hasil yang cocok untuk "{query}"
+                  </p>
+                )}
               </div>
             </div>
           </div>
         </section>
       </main>
+
       <Footer />
     </div>
   );

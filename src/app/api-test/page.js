@@ -1,51 +1,44 @@
-// "use client";
+"use client";
+import { useEffect, useState } from "react";
 
-// import { useEffect, useState } from "react";
+export default function APITestPage() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-// export default function APITestPage() {
-//   const [result, setResult] = useState(null);
-//   const [error, setError] = useState(null);
+  useEffect(() => {
+    const fetchRecommendations = async () => {
+      try {
+        const res = await fetch("http://127.0.0.1:8000/api/v1/recommend", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            topic_tags: ["Cloud Computing", "Data", "Front End"],
+            learning_path: ["Front-End Web", "Back-End"],
+            proficiency_level: "Mahir",
+          }),
+        });
 
-//   useEffect(() => {
-//     const fetchRecommendations = async () => {
-//       try {
-//         const res = await fetch("http://127.0.0.1:8000/api/v1/recommend", {
-//           method: "POST",
-//           headers: {
-//             "Content-Type": "application/json",
-//           },
-//           body: JSON.stringify({
-//             topic_tags: ["SQL untuk Data Analyst"],
-//             learning_path: ["Data Analyst"],
-//             proficiency_level: "Level: Menengah",
-//           }),
-//         });
+        const json = await res.json();
+        setData(json);
+      } catch (err) {
+        console.error("Failed to fetch:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-//         if (!res.ok) {
-//           throw new Error("Failed to fetch");
-//         }
+    fetchRecommendations();
+  }, []);
 
-//         const data = await res.json();
-//         setResult(data);
-//       } catch (err) {
-//         setError(err.message);
-//       }
-//     };
+  if (loading) return <p>Loading...</p>;
+  if (!data) return <p>Error fetching data</p>;
 
-//     fetchRecommendations();
-//   }, []);
-
-//   return (
-//     <div className="p-10">
-//       <h1 className="text-2xl font-bold">Test API Result</h1>
-//       {error && <p className="text-red-500">Error: {error}</p>}
-//       {result ? (
-//         <pre className="mt-4 p-4 bg-gray-100 text-sm overflow-x-auto">
-//           {JSON.stringify(result, null, 2)}
-//         </pre>
-//       ) : (
-//         <p className="mt-4 text-gray-600">Loading...</p>
-//       )}
-//     </div>
-//   );
-// }
+  return (
+    <div className="text-black">
+      <h1>Rekomendasi:</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  );
+}
