@@ -35,21 +35,26 @@ export default function Navbar({ active }) {
         >
           Job Trends Tracker
         </li>
-        <li 
+        <li
           className={`${
             active === "stories"
               ? "text-white"
               : "text-[#ACB7C6] hover:text-white"
           }`}
-        > Career Stories
+        >
+          {" "}
+          Career Stories
         </li>
-        <li 
+
+         <li
           className={`${
-            active === "roadmap"
+            active === "roadmoap"
               ? "text-white"
               : "text-[#ACB7C6] hover:text-white"
           }`}
-        > Career Roadmap
+        >
+          {" "}
+          Career Roadmap
         </li>
       </ul>
 
