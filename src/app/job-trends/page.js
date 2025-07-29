@@ -15,6 +15,13 @@ import {
 } from "recharts";
 import Dropdown from "@/components/Dropdown";
 
+const jobFields = [
+  "Data Analytics",
+  "Design & Creative",
+  "Software & Development",
+];
+const periods = ["3 bulan terakhir", "6 bulan terakhir", "1 tahun terakhir"];
+
 const dataWithoutPrediction = [
   { name: "Data Science", "2025-03": 50, "2025-04": 45, "2025-05": 40 },
   { name: "Finance", "2025-03": 40, "2025-04": 35, "2025-05": 30 },
@@ -56,6 +63,8 @@ const dataWithPrediction = [
 
 export default function JobTrendsPage() {
   const [showPrediction, setShowPrediction] = useState(false);
+  const [selectedField, setSelectedField] = useState("");
+  const [selectedPeriod, setSelectedPeriod] = useState("");
 
   const chartData = showPrediction ? dataWithPrediction : dataWithoutPrediction;
   const lines = showPrediction
@@ -76,8 +85,18 @@ export default function JobTrendsPage() {
 
           {/* Filter */}
           <div className="flex justify-center items-center mb-6 gap-6">
-            <Dropdown />
-            <Dropdown />
+            <Dropdown
+              options={jobFields}
+              selected={selectedField}
+              onSelect={setSelectedField}
+              placeholder="Bidang Pekerjaan"
+            />
+            <Dropdown
+              options={periods}
+              selected={selectedPeriod}
+              onSelect={setSelectedPeriod}
+              placeholder="Periode"
+            />
           </div>
 
           {/* Grafik */}
