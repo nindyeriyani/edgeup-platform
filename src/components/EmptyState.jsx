@@ -8,7 +8,7 @@ import Tag from "@/components/Tag";
 import TrainingCard from "@/components/TrainingCard";
 import trainings from "@/data/mockTraining";
 
-export default function ErrorState() {
+export default function EmptyState() {
   return (
     <div className="flex flex-col min-h-screen text-black">
       <Navbar active="certifications" />
