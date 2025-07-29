@@ -48,21 +48,17 @@ export default function SearchBar({ query, setQuery, onSearch }) {
           className="absolute w-full bg-[#F3F4F6] rounded-b-md border border-[#8A929E] z-10"
           aria-label="Rekomendasi pencarian"
         >
-          {filtered.length > 0 ? (
-            filtered.map((item, index) => (
-              <li
-                key={index}
-                className="px-4 py-2 text-sm text-gray-900 hover:bg-gray-200 cursor-pointer"
-                onClick={() => setQuery(item)}
-              >
-                {item}
-              </li>
-            ))
-          ) : (
-            <li className="px-4 py-2 text-sm text-gray-500 italic">
-              Tidak ada hasil.
-            </li>
-          )}
+          {filtered.length > 0
+            ? filtered.map((item, index) => (
+                <li
+                  key={index}
+                  className="px-4 py-2 text-sm text-gray-900 hover:bg-gray-200 cursor-pointer"
+                  onClick={() => setQuery(item)}
+                >
+                  {item}
+                </li>
+              ))
+            : null}
         </ul>
       )}
     </div>

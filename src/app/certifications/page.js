@@ -40,8 +40,9 @@ export default function CertificationsPage() {
             <SearchBar
               query={query}
               setQuery={setQuery} //isi input search-nya
-              onSearch={(keyword) =>
-                router.push(`/certifications/${encodeURIComponent(keyword)}`) //Fungsi ini dipanggil ketika user menekan Enter atau klik tombol search.
+              onSearch={
+                (keyword) =>
+                  router.push(`/certifications/${encodeURIComponent(keyword)}`) //Fungsi ini dipanggil ketika user menekan Enter atau klik tombol search.
                 // encodeURIComponent() digunakan agar spasi atau karakter khusus dalam keyword tetap valid di URL
               }
             />
@@ -51,20 +52,22 @@ export default function CertificationsPage() {
               <h2 className="font-semibold text-sm text-black">
                 Rekomendasi Pencarian
               </h2>
-              <TagSearch
-                tags={[
-                  "ui/ux",
-                  "data",
-                  "machine learning",
-                  "system",
-                  "business",
-                ]}
-                onSelect={(tag) => {
-                  setQuery(tag);
-                  router.push(`/certifications/${encodeURIComponent(tag)}`);
-                }}
-                tagClass="border-[#ACB7C6] text-black"
-              />
+              <div className="mt-3">
+                <TagSearch
+                  tags={[
+                    "ui/ux",
+                    "data",
+                    "machine learning",
+                    "system",
+                    "business",
+                  ]}
+                  onSelect={(tag) => {
+                    setQuery(tag);
+                    router.push(`/certifications/${encodeURIComponent(tag)}`);
+                  }}
+                  tagClass="border-[#ACB7C6] text-black"
+                />
+              </div>
             </div>
           </div>
         </section>

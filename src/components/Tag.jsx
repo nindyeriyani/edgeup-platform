@@ -7,20 +7,18 @@ export default function Tag({
   interactive = true, // default: bisa diklik
 }) {
   return (
-    <div className="mt-3">
-      <ul className="flex flex-wrap gap-3 list-none p-0 m-0">
-        {tags.map((tag, index) => (
-          <li
-            key={index}
-            className={`px-3 py-1 border text-sm rounded-lg ${
-              interactive ? "cursor-pointer" : "cursor-default"
-            } ${tagClass}`}
-            onClick={interactive ? () => onSelect?.(tag) : undefined}
-          >
-            {tag}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className="flex gap-2 flex-wrap">
+      {tags.map((tag, index) => (
+        <li
+          key={index}
+          className={`px-3 py-1 border text-sm rounded-lg ${
+            interactive ? "cursor-pointer" : "cursor-default"
+          } ${tagClass}`}
+          onClick={interactive ? () => onSelect?.(tag) : undefined}
+        >
+          {tag}
+        </li>
+      ))}
+    </ul>
   );
 }
