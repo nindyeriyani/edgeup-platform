@@ -10,16 +10,32 @@ import Tag from "@/components/Tag";
 import Button from "@/components/Button";
 import Image from "next/image";
 import slugify from "slugify";
-import { ArrowLeft, Share2, MoreVertical, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import {
+  Share2,
+  MoreVertical,
+  ArrowLeft,
+  ArrowRight,
+  Check,
+} from "lucide-react";
 
 export default function CertificationDetailPage(props, data) {
   const params = useParams();
   const slug = params.slug;
   const searchParams = useSearchParams();
   const fromQuery = searchParams.get("from");
+  const [copied, setCopied] = useState(false);
 
   const router = useRouter();
 
+  const handleCopyLink = () => {
+    if (training.link_url) {
+      navigator.clipboard.writeText(training.link_url).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      });
+    }
+  };
   // Truncate text function
   const truncateText = (text, maxLength = 600) => {
     if (!text) return "";
@@ -67,9 +83,18 @@ export default function CertificationDetailPage(props, data) {
               </span>
             </div>
             <div className="flex gap-4 mt-8">
-              <button className="p-2 border rounded-md text-[#0BB0BF]">
-                <Share2 size={20} />
+              <button
+                className="p-2 border rounded-lg text-[#0BB0BF] cursor-pointer hover:bg-[#e7e7e7] transition w-fit"
+                onClick={handleCopyLink}
+                title="Salin link pelatihan"
+              >
+                {copied ? (
+                  <Check size={20} className="text-green-600" />
+                ) : (
+                  <Share2 size={20} />
+                )}
               </button>
+
               <button className="p-2 border rounded-md text-[#0BB0BF]">
                 <MoreVertical size={20} />
               </button>

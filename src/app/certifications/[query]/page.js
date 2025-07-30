@@ -33,7 +33,7 @@ export default function CertificationSearchResultPage() {
   // Check for data loading errors
   useEffect(() => {
     try {
-      if (!rawData || typeof rawData !== 'object') {
+      if (!rawData || typeof rawData !== "object") {
         setError(true);
       }
     } catch (err) {
@@ -63,10 +63,10 @@ export default function CertificationSearchResultPage() {
 
     // Match if query is in any topic tag or learning path
     const matchQuery =
-    normalizedRole.includes(normalizedQuery) ||
-    normalizedTopicTags.some((tag) => tag.includes(normalizedQuery)) ||
-    normalizedLearningPaths.some((path) => path.includes(normalizedQuery)) ||
-    searchInput === "";
+      normalizedRole.includes(normalizedQuery) ||
+      normalizedTopicTags.some((tag) => tag.includes(normalizedQuery)) ||
+      normalizedLearningPaths.some((path) => path.includes(normalizedQuery)) ||
+      searchInput === "";
 
     return matchQuery;
   });
@@ -155,22 +155,23 @@ export default function CertificationSearchResultPage() {
               {/* Card Results */}
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {filteredTrainings.map((training, index) => (
-                  <Link
+                  <TrainingCard
                     key={index}
-                    href={`/certifications/detail/${slugify(training.title, {
-                      lower: true,
-                    })}?from=${encodeURIComponent(searchInput)}`}
-                  >
-                    <TrainingCard
-                      data={{
-                        image: training.image_preview_course,
-                        logo: training.course_logo,
-                        provider: training.course_name,
-                        title: training.title,
-                        description: truncateText(training.descriptions, 300),
-                      }}
-                    />
-                  </Link>
+                    data={{
+                      image: training.image_preview_course,
+                      logo: training.course_logo,
+                      provider: training.course_name,
+                      title: training.title,
+                      description: truncateText(training.descriptions, 300),
+                      link: training.link_url,
+                      detailLink: `/certifications/detail/${slugify(
+                        training.title,
+                        {
+                          lower: true,
+                        }
+                      )}?from=${encodeURIComponent(searchInput)}`,
+                    }}
+                  />
                 ))}
               </div>
             </div>

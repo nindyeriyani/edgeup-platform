@@ -1,75 +1,22 @@
 "use client";
 
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import jobTrends from "@/data/job_trends.json";
 import {
-  LineChart,
-  Line,
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
-  CartesianGrid,
   ResponsiveContainer,
+  CartesianGrid,
 } from "recharts";
-import Dropdown from "@/components/Dropdown";
-
-const jobFields = [
-  "Data Analytics",
-  "Design & Creative",
-  "Software & Development",
-];
-const periods = ["3 bulan terakhir", "6 bulan terakhir", "1 tahun terakhir"];
-
-const dataWithoutPrediction = [
-  { name: "Data Science", "2025-03": 50, "2025-04": 45, "2025-05": 40 },
-  { name: "Finance", "2025-03": 40, "2025-04": 35, "2025-05": 30 },
-  { name: "Management", "2025-03": 38, "2025-04": 33, "2025-05": 28 },
-  {
-    name: "Cybersecurity Specialist",
-    "2025-03": 35,
-    "2025-04": 32,
-    "2025-05": 27,
-  },
-  { name: "Frontend Developer", "2025-03": 32, "2025-04": 28, "2025-05": 24 },
-];
-
-const dataWithPrediction = [
-  {
-    name: "Data Science",
-    "2025-03": 50,
-    "2025-04": 45,
-    "2025-05": 40,
-    2026: 55,
-  },
-  { name: "Finance", "2025-03": 40, "2025-04": 35, "2025-05": 30, 2026: 44 },
-  { name: "Management", "2025-03": 38, "2025-04": 33, "2025-05": 28, 2026: 42 },
-  {
-    name: "Cybersecurity Specialist",
-    "2025-03": 35,
-    "2025-04": 32,
-    "2025-05": 27,
-    2026: 40,
-  },
-  {
-    name: "Frontend Developer",
-    "2025-03": 32,
-    "2025-04": 28,
-    "2025-05": 24,
-    2026: 36,
-  },
-];
 
 export default function JobTrendsPage() {
-  const [showPrediction, setShowPrediction] = useState(false);
-  const [selectedField, setSelectedField] = useState("");
-  const [selectedPeriod, setSelectedPeriod] = useState("");
-
-  const chartData = showPrediction ? dataWithPrediction : dataWithoutPrediction;
-  const lines = showPrediction
-    ? ["2025-03", "2025-04", "2025-05", "2026"]
-    : ["2025-03", "2025-04", "2025-05"];
+  const sortedData = [...jobTrends]
+    .sort((a, b) => b.job_count - a.job_count)
+    .slice(0, 5); // Top 10 pekerjaan
 
   return (
     <div className="flex flex-col min-h-screen text-[#13171B]">
@@ -80,71 +27,59 @@ export default function JobTrendsPage() {
             Job Trends & Tracker
           </h1>
           <p className="text-center text-gray-600 mb-10">
-            Lacak tren pekerjaan terbaru di berbagai bidang.
+            Pekerjaan paling dicari berdasarkan data bulan Juli 2025.
           </p>
 
-          {/* Filter */}
-          <div className="flex justify-center items-center mb-6 gap-6">
-            <Dropdown
-              options={jobFields}
-              selected={selectedField}
-              onSelect={setSelectedField}
-              placeholder="Bidang Pekerjaan"
-            />
-            <Dropdown
-              options={periods}
-              selected={selectedPeriod}
-              onSelect={setSelectedPeriod}
-              placeholder="Periode"
-            />
-          </div>
-
-          {/* Grafik */}
           <div className="bg-white p-6 rounded shadow">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-md font-semibold mb-4">
-                {showPrediction
-                  ? "Top 5 Pekerjaan Populer 3 Tahun Terakhir"
-                  : "Top 5 Pekerjaan Populer 3 Bulan Terakhir"}
-              </h2>
-              {/* Checkbox Prediksi */}
-              <div className="flex justify-center items-center gap-2 mb-4">
-                <input
-                  type="checkbox"
-                  id="prediction"
-                  checked={showPrediction}
-                  onChange={(e) => setShowPrediction(e.target.checked)}
-                  className="cursor-pointer"
-                />
-                <label
-                  htmlFor="prediction"
-                  className="text-sm text-gray-700 cursor-pointer"
-                >
-                  Tampilkan prediksi masa depan
-                </label>
-              </div>
-            </div>
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={chartData}>
+            <h2 className="text-md font-semibold mb-4">
+              Top 5 Pekerjaan Populer di Juli 2025
+            </h2>
+
+            <ResponsiveContainer width="100%" height={400}>
+              <BarChart
+                data={sortedData}
+                margin={{ top: 20, right: 30, left: 20, bottom: 70 }}
+              >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
+                <XAxis
+                  dataKey="role"
+                  angle={-45}
+                  textAnchor="end"
+                  interval={0}
+                  height={100}
+                  tick={{ fontSize: 12 }}
+                />
                 <YAxis />
-                <Tooltip />
-                <Tooltip />
-                <Legend />
-                {lines.map((lineKey, i) => (
-                  <Line
-                    key={lineKey}
-                    type="monotone"
-                    dataKey={lineKey}
-                    stroke={
-                      ["#FF9900", "#3366CC", "#CC0033", "#00B388"][i] // custom color
+                <Tooltip
+                  content={({ active, payload, label }) => {
+                    if (active && payload && payload.length) {
+                      return (
+                        <div
+                          style={{
+                            backgroundColor: "white",
+                            padding: 10,
+                            border: "1px solid #ccc",
+                          }}
+                        >
+                          <p style={{ margin: 0 }}>
+                            <span style={{ fontWeight: "bold" }}>
+                              {label}
+                            </span>{" "}
+                          </p>
+                          <p style={{ color: "#00aa77", margin: 0 }}>
+                            <span style={{ fontWeight: "bold" }}>
+                              Job Count: {payload[0].value}
+                            </span>{" "}
+                          </p>
+                        </div>
+                      );
                     }
-                    strokeWidth={2}
-                    dot={{ r: 4 }}
-                  />
-                ))}
-              </LineChart>
+                    return null;
+                  }}
+                />
+
+                <Bar dataKey="job_count" fill="#00B388" />
+              </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
