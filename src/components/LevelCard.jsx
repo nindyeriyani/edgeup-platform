@@ -3,7 +3,7 @@
 export default function LevelCard ({ level, role, skills, alat, sertifikasi }) {
     return  (
         <div className="w-full w-[246px] h-[154px] bg-white rounded-[12px] p-[16px] font-['Nunito_Sans'] border border-[#ACB7C6] gap-[10px]">
-            <div classNmae="w-[214px] gap-[8px] flex flex-col">
+            <div className="w-[214px] gap-[8px] flex flex-col">
                 <div className="flex flex-col gap-[4px] w-[148px] ">
                     <p className="font-semibold text-[16px] leading-[140%] text-[#13171B]">{level}</p>
                     <p className="font-normal text-[14px] leading-[140%] text-[#35414D]">{role}</p>
