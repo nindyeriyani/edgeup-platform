@@ -20,6 +20,13 @@ export default function CertificationDetailPage(props, data) {
 
   const router = useRouter();
 
+  // Truncate text function
+  const truncateText = (text, maxLength = 600) => {
+    if (!text) return "";
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength).trim() + "...";
+  };
+
   // Flatten all recommended_courses from all roles into a single array
   const allCourses = Object.values(rawData).flatMap(
     (role) => role.recommended_courses || []
@@ -98,8 +105,8 @@ export default function CertificationDetailPage(props, data) {
               <h2 className="text-3xl font-semibold text-[#13171B] leading-tight mb-4 w-5/6">
                 {training.title}
               </h2>
-              <p className="text-sm text-[#13171B] mb-1">
-                {training.descriptions}
+              <p className="text-sm text-[#13171B] mb-5">
+                {truncateText(training.descriptions, 500)}
               </p>
 
               <div className="flex flex-wrap gap-2 mb-6">

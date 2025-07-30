@@ -1,0 +1,66 @@
+[
+    {
+        "role": "EDP/IT Support Staff",
+        "job_count": 53
+    },
+    {
+        "role": "Programmer / Software Developer",
+        "job_count": 16
+    },
+    {
+        "role": "Technical Support Engineer",
+        "job_count": 15
+    },
+    {
+        "role": "Website Administrator",
+        "job_count": 13
+    },
+    {
+        "role": "Customer Care Associate",
+        "job_count": 10
+    },
+    {
+        "role": "Network Engineer",
+        "job_count": 10
+    },
+    {
+        "role": "Data Analyst",
+        "job_count": 5
+    },
+    {
+        "role": "Business Analyst",
+        "job_count": 5
+    },
+    {
+        "role": "Product Strategy Staff",
+        "job_count": 5
+    },
+    {
+        "role": "Project Administrator",
+        "job_count": 5
+    },
+    {
+        "role": "Field Supervisor (Telecommunications)",
+        "job_count": 5
+    },
+    {
+        "role": "SAP Functional Consultant",
+        "job_count": 5
+    },
+    {
+        "role": "Solution Specialist",
+        "job_count": 5
+    },
+    {
+        "role": "Production/Operations Staff",
+        "job_count": 5
+    },
+    {
+        "role": "Strategy Analyst",
+        "job_count": 2
+    },
+    {
+        "role": "QA Engineer",
+        "job_count": 1
+    }
+]

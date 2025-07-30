@@ -23,6 +23,13 @@ export default function CertificationSearchResultPage() {
   const [filters, setFilters] = useState({ levels: [] });
   const [error, setError] = useState(false);
 
+  // Truncate text function
+  const truncateText = (text, maxLength = 300) => {
+    if (!text) return "";
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength).trim() + "...";
+  };
+
   // Check for data loading errors
   useEffect(() => {
     try {
@@ -160,7 +167,7 @@ export default function CertificationSearchResultPage() {
                         logo: training.course_logo,
                         provider: training.course_name,
                         title: training.title,
-                        description: training.descriptions,
+                        description: truncateText(training.descriptions, 300),
                       }}
                     />
                   </Link>

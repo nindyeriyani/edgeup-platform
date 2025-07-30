@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function TrainingCard({ data }) {
   return (
-    <div className="bg-white border border-[#E0E0E0] rounded-md shadow-sm overflow-hidden min-h-[420px] flex flex-col justify-between">
+    <div className="bg-white border border-[#E0E0E0] rounded-md shadow-sm overflow-hidden min-h-[400px] flex flex-col justify-between">
       {/* Preview Image Course */}
       <div className="relative h-[140px]">
         <Image
