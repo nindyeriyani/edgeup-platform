@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Button from "@/components/Button";
 import ProfileCard from "@/components/BigProfileCard";
-import stories from '@/data/stories.json';
+const stories = await import('@/data/stories.json').then(mod => mod.default);
 
 function FallbackPage() {
   return (
@@ -29,7 +29,7 @@ function FallbackPage() {
   );
 }
 
-export default function StoryPage({ params }) {
+export default async function StoryPage({ params }) {
   const { slug } = params;
   const story = stories[slug] ;
   return (
