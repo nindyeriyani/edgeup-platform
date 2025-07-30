@@ -3,17 +3,10 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CareerStoriesCard from "@/components/CareerStoriesCard";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+
 
 export default function StoriesPage() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const router = useRouter();
-
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-    router.push(`/stories?search=${query}`);
-  };
+ 
 
   return (
     <div className=" flex flex-col min-h-screen">
@@ -27,7 +20,7 @@ export default function StoriesPage() {
                 <p className=" max-w-2xl text-base sm:text-lg md:text-xl leading-[120%] text-center font-normal font-['Nunito_Sans']  mb-8 sm:mb-12">
                     Cerita nyata dari mereka yang udah lebih dulu meniti karier. Yuk, lihat keseharian dan insight mereka
                 </p>
-                <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+                <div className="w-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-6 ">
                         <CareerStoriesCard
                         title="Di Balik Dashboard: Cerita Sehari Jadi Data Analyst"
                         name="Aurora"

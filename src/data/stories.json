@@ -1,0 +1,93 @@
+{
+    "cerita-1": {
+        "title": "Di Balik Dashboard: Cerita Sehari Jadi Data Analyst",
+        "name": "Aurora",
+        "role": "Data Analyst",
+        "company": "EduStat",
+        "date": "5 Juli 2025",
+        "desc": "Dari buka dashboard sampai presentasi ke tim, Nabila cerita gimana kerjaan analis tuh lebih dari sekadar angka.",
+        "image": "/images/avatar-cardstories-person1.png",
+        "banner": "/images/banner-story-aurora.png",
+        "excerpt": "Ikuti keseharian Aurora sebagai Data Analyst di EduStat — dari baca data sampai bantu tim ambil keputusan penting.",
+        "iconTool1": "/images/icon-excel.png",
+        "iconTool2": "/images/icon-tableu.png",
+        "iconTool3": "/images/icon-mysql.png",
+        "nameTool1": "Excel",
+        "nameTool2": "Tableu",
+        "nameTool3": "SQL",
+        "location": "Jakarta",
+        "content": [
+            "Setiap pagi, aku selalu mulai dengan hal yang sama: buka dashboard. Sambil nyeruput kopi, aku ngeliatin metrik performa dari beberapa kampanye yang lagi jalan. Dari situ, kadang langsung kelihatan mana yang jalan mulus dan mana yang butuh perhatian khusus. Bisa jadi angka bounce rate-nya naik, atau conversion-nya tiba-tiba turun. Di situlah rasa penasaran muncul — dan itu yang bikin kerjaan ini selalu menarik.",
+            "Setelah dashboard pagi beres, biasanya aku lanjut ke analisis mingguan. Ini bagian yang lebih dalam — bukan sekadar lihat angka, tapi nyari tahu kenapa angkanya begitu. Aku inget banget satu kasus waktu itu: performa kampanye turun drastis, dan tim marketing udah panik. Setelah aku telusuri, ternyata ada bug di landing page yang bikin button CTA nggak bisa diklik. Dan karena itu, konversi anjlok. Begitu bug-nya dibenerin, performanya balik naik. Insight kecil itu bisa nyelametin budget kampanye yang lumayan besar.",
+            "Tapi kerjaan data nggak selalu tentang detektif-detektifan angka. Ada juga momen-momen di mana aku harus jadi storyteller. Salah satu pengalaman paling mendebarkan adalah waktu aku presentasiin hasil analisis ke board eksekutif. Isinya tentang perilaku user baru di aplikasi kami — data yang kelihatannya biasa aja, tapi ternyata jadi dasar buat keputusan besar: perubahan struktur onboarding. Awalnya aku sempat minder, takut cara jelasku terlalu teknis. Tapi pas presentasi berlangsung, mereka justru excited. Mereka bisa lihat “cerita” dari datanya. Di situlah aku sadar: data gak akan ada artinya kalau kita gak bisa menyampaikannya dengan cara yang bisa dipahami semua orang.",
+            "Makanya aku sadar pentingnya skill komunikasi visual. Aku sering banget belajar tools baru buat bantu proses ini. Salah satu course favoritku akhir-akhir ini adalah Storytelling with Data. Dari situ aku belajar cara bikin chart yang intuitif, cara memilih warna yang nggak misleading, bahkan hal-hal kecil kayak urutan slide biar audiens nggak bingung. Presentasi yang bagus bukan yang penuh animasi, tapi yang ngalir dan ngena.",
+            "Selain kerjaan utama, aku juga berusaha keep up dengan tren industri. Dunia data tuh cepet banget berubah. Hari ini semua orang pakai SQL dan Tableau, besok bisa aja ada tool baru yang lebih cepat dan efisien. Jadi aku rutin baca blog kayak Towards Data Science, atau newsletter dari Benn Stancil dan Emily Riederer. Kadang dapet ide dari sana yang bisa langsung aku cobain di proyek kantor. Menurutku, jadi data analyst tuh bukan cuma soal eksekusi, tapi juga soal exploration.",
+            "Yang bikin aku betah di dunia data adalah karena selalu ada yang bisa digali. Kadang insight-nya bikin perubahan besar, kadang cuma validasi hipotesis kecil. Tapi semuanya penting. Dan makin ke sini, aku makin sadar: peran data analyst bukan sekadar ngolah Excel atau bikin dashboard. Tapi jadi penghubung — antara data dan keputusan. Antara angka dan aksi nyata.",
+            "Bekerja lintas tim juga jadi tantangan tersendiri. Kadang aku kerja bareng tim produk buat nyari tahu fitur mana yang paling dipakai. Kadang bareng marketing buat nge-track hasil campaign. Di sini, empati penting banget. Aku harus ngerti sudut pandang mereka, bahasa mereka, dan goals mereka — biar data yang aku kasih memang relevan. Dan itu gak bisa dipelajari dari buku aja. Harus sering diskusi, tanya, dan dengerin.",
+            "Momen yang paling rewarding? Waktu aku nemu insight yang bener-bener bikin tim berubah arah — dan ternyata dampaknya besar. Rasanya kayak, “wah, ternyata kerjaanku beneran berdampak ya.” Gak harus selalu fancy. Tapi ketika kita tahu analisis kita bikin orang ambil keputusan lebih percaya diri, itu udah bikin puas banget.",
+            "Buat kamu yang lagi pengen masuk dunia data, mungkin keliatannya intimidatif — banyak istilah teknis, tools baru, atau bahasa pemrograman. Tapi menurutku, yang paling penting itu rasa penasaran dan kemampuan bercerita. Sisanya bisa dipelajari pelan-pelan. Karena pada akhirnya, kita semua cuma lagi nyoba menyambungkan titik-titik kecil di lautan informasi yang luas."
+        ]
+        
+    },
+    "cerita-2": {
+        "title": "Hidup Engineer: Seru atau Pusing?",
+        "name": "Dimas",
+        "role": "Software Engineer",
+        "company": "FinTechID",
+        "date": "8 Juli 2025",
+        "desc": "Dari review PR sampai ngoding modul baru, Dimas cerita keseharian sebagai engineer di dunia fintech.",
+        "image": "/images/avatar-cardstories-person2.png",
+        "banner": "/images/banner-story-dimas.png",
+        "iconTool1": "/images/icon-github.png",
+        "iconTool2": "/images/icon-vscode.png",
+        "iconTool3": "/images/icon-postman.png",
+        "nameTool1": "GitHub",
+        "nameTool2": "Visual Studio Code",
+        "nameTool3": "Postman",
+        "location": "Malang",
+        "content": [
+            "Kerja sebagai Software Engineer di perusahaan fintech tuh rasanya kayak naik roller coaster — banyak naik turunnya, kadang bikin deg-degan, tapi nagih. Setiap harinya beda, dan justru itu yang bikin aku betah sampai sekarang.",
+            "Biasanya, hari-hariku dimulai dari ngebuka laptop sambil nyeruput kopi hitam. Langsung cek dashboard Jira buat lihat task apa yang harus diselesaikan hari ini. Timku pake sistem agile, jadi dalam satu minggu ada beberapa sprint kecil yang harus kami kejar. Setelah itu, lanjut daily stand-up bareng tim: saling update progress, diskusi hambatan, dan atur prioritas. Meski cuma 15 menit, momen ini penting banget biar semua orang tetap sinkron.",
+            "Tapi sebelum coding, biasanya aku mulai dulu dari nge-review pull request (PR) yang masuk. Ini termasuk bagian yang kadang bikin pusing, karena harus teliti: cek logic, struktur kode, sampai naming convention. Tapi PR review juga jadi momen belajar. Dari kode orang lain, aku bisa dapet insight baru atau nemu pendekatan solusi yang sebelumnya gak kepikiran.",
+            "Setelah urusan review beres, barulah aku fokus ke task utama hari itu. Misalnya, minggu lalu aku ngerjain modul buat verifikasi pengguna baru — mulai dari desain database, implementasi backend, sampai integrasi ke frontend. Kadang harus kerja bareng QA juga buat pastiin semua flow jalan dengan benar dan edge cases ketangani.",
+            "Satu hal yang selalu aku rasain dari kerja di fintech adalah: semua harus cepat tapi tetap akurat. Produk yang kami kembangkan punya dampak langsung ke keuangan user. Salah sedikit aja bisa bahaya. Jadi pressure-nya lumayan terasa. Tapi aku suka tantangan itu — karena bikin aku terus berkembang dan gak bisa asal-asalan.",
+            "Selain coding, aku juga sering terlibat diskusi arsitektur bareng tech lead dan developer lain. Misalnya, gimana cara bikin sistem yang scalable, aman, dan tetap mudah dipelihara. Kadang aku juga diajak ikut meeting sama tim produk. Di situ aku belajar gimana caranya translate kebutuhan bisnis ke dalam solusi teknis. Awalnya susah — apalagi waktu harus jelasin ke tim non-teknis kenapa suatu fitur butuh waktu lebih lama atau gak bisa langsung diluncurkan. Tapi makin lama, aku jadi paham pentingnya komunikasi lintas tim. Bukan cuma soal nyampein info, tapi juga bikin orang lain ngerti dan percaya.",
+            "Ngomongin tantangan, salah satu yang paling aku inget adalah waktu ngerjain refactor sistem pembayaran lama. Kodenya udah cukup legacy dan banyak banget dependency-nya. Harus sabar banget bongkar satu-satu. Tapi setelah refactor selesai, performanya naik 30% dan bug-nya berkurang drastis. Dari situ aku belajar bahwa kadang yang kelihatan kecil dan gak seksi itu justru berdampak besar.",
+            "Aku juga beberapa kali diminta jadi mentor buat intern atau engineer baru. Awalnya sempat ragu, karena ngerasa belum cukup senior. Tapi ternyata, sharing pengalaman sehari-hari dan best practice itu bisa sangat membantu mereka. Aku jadi lebih reflektif juga — karena harus ngejelasin proses yang selama ini udah otomatis aku lakuin.",
+            "Yang paling rewarding? Saat fitur yang aku buat akhirnya live dan dipakai ribuan user. Ada rasa bangga tersendiri lihat hasil kerja keras bertemu dunia nyata. Apalagi kalau dapet feedback positif dari user atau stakeholder. Itu kayak pengingat bahwa kerjaanku bukan cuma soal nulis kode, tapi juga memberi nilai buat orang lain.",
+            "Kalau kamu penasaran dunia Software Engineering, siap-siap aja buat belajar terus. Karena teknologi bakal terus berubah, dan yang bikin seru adalah jadi bagian dari perubahannya."
+        ]
+    },
+    "cerita-3": {
+        "title": "Sehari Jadi UI Designer: Dari Brief Sampai Prototipe",
+        "name": "Rara",
+        "role": "UI Designer",
+        "company": "StartUp",
+        "date": "14 Juli 2025",
+        "desc": "Gimana rasanya jadi UI Designer seharian? Cerita ini ngebahas mulai dari brainstorming sampai prototipe di Figma.",
+        "image": "/images/avatar-cardstories-person3.png",
+        "banner": "/images/banner-story-rara.png",
+        "iconTool1": "/images/icon-notion.png",
+        "iconTool2": "/images/icon-figma.png",
+        "iconTool3": "/images/icon-zeplin.png",
+        "nameTool1": "Notion",
+        "nameTool2": "Figma",
+        "nameTool3": "Zeplin",
+        "location": "Bandung",
+        "content": [
+            "Hari itu aku dapet task baru dari tim produk: bikin halaman onboarding untuk pengguna baru. Brief-nya kelihatan simpel — “buat halaman yang bikin user lebih ngerti fitur-fitur utama sebelum mereka mulai pakai aplikasi.” Tapi dari pengalaman, aku tahu nggak ada desain yang cuma sekadar cantik. Desain yang efektif harus bisa menyampaikan pesan, menyederhanakan pengalaman, dan tetap bisa dibangun developer dengan realistis.",
+            "Brief itu kemudian jadi titik awal brainstorming bareng tim. Kami duduk bareng: aku, UX Writer, Developer, dan Product Manager. Obrolannya ngalir ke mana-mana — mulai dari kebiasaan user, feedback dari tim CS, sampai hal-hal teknis yang perlu dipertimbangkan. Di situ aku sadar, desain bukan tentang “aku mau ini tampilannya gimana”, tapi tentang memahami masalah dan cari solusinya bareng-bareng.",
+            "Setelah brainstorming, aku lanjut ke tahap wireframing. Biasanya aku mulai dari FigJam, karena di situ aku bebas eksplor ide — dari susunan layout sampai urutan flow. Di proses ini, aku nggak langsung mikir soal warna atau font. Fokus utamanya adalah struktur dan alur: apakah user bisa ngerti langkah-langkahnya? Apakah urutannya logis? Apakah semua elemen penting udah terpenuhi?",
+            "Kadang aku juga sambil ngeliat kembali data riset atau feedback user yang udah dikumpulin tim sebelumnya. Misalnya, ternyata banyak user yang skip onboarding karena terlalu banyak teks. Jadi di wireframe-ku kali ini, aku coba buat pendekatan baru: visual lebih banyak, teks lebih singkat, dan ada progress bar yang kasih sense of completion.",
+            "Begitu wireframe selesai dan udah dapat approval dari tim, aku mulai pindah ke Figma buat ngerjain high-fidelity design. Ini tahap yang menurutku paling satisfying tapi juga paling menantang. Karena di sini, semua keputusan kecil bisa berdampak besar — ukuran button, kontras warna, spacing antar elemen, sampai hierarki informasi. Aku juga harus pastikan desainnya tetap sesuai dengan design system yang udah kami punya, biar konsisten dan gampang di-develop.",
+            "Salah satu hal yang aku pelajari sebagai UI Designer adalah: harus sering-sering ngobrol sama developer. Karena secantik apapun desain kita, kalau susah dibangun atau bikin page berat banget, ujung-ujungnya harus diubah. Jadi sambil ngerjain prototipe, aku juga buka diskusi sama front-end developer buat pastiin semua elemen feasible. Terkadang juga muncul masukan dari mereka yang justru bikin desainku jadi lebih simpel dan efisien.",
+            "Hal penting lainnya dalam prosesku adalah testing. Setelah desain jadi, aku bikin prototipe interaktif dan mulai validasi ke user internal. Misalnya: apakah mereka ngerti arah navigasinya? Apakah button yang paling penting cukup menonjol? Apakah visualnya terlalu ramai atau malah terlalu kosong? Masukan kayak gini bikin aku lebih grounded — karena sering kali ekspektasi kita beda dengan kenyataan di lapangan.",
+            "Dari feedback itu, aku biasa nyusun beberapa revisi kecil. Entah ubah wording di headline, geser icon sedikit, atau ganti flow jadi lebih pendek. Menurutku, iterasi itu bagian dari proses desain. Gak ada desain yang langsung sempurna di awal. Justru semakin banyak insight yang didapet, makin matang hasil akhirnya.",
+            "Presentasi desain ke tim juga jadi momen penting. Di sinilah desain kita “dijual”. Aku harus bisa jelasin kenapa layout-nya begitu, kenapa button ditempatkan di sana, kenapa pilih warna X bukan warna Y. Dan kadang, presentasi yang baik bisa ngebantu stakeholder atau tim lain paham arah pikir kita — bahkan sebelum mereka nanya.",
+            "Banyak yang mikir kerjaan UI Designer itu cuma bikin tampilan yang bagus. Tapi buatku, UI itu tentang komunikasi. Tentang bantu user ngerti sistem yang kompleks jadi lebih sederhana. Tentang bikin user nyaman, gak bingung, dan bisa fokus sama tujuan mereka. Di akhir hari, pas lihat desainku udah diimplementasi, dipakai user beneran, dan dapet feedback positif dari tim — rasanya tuh campur aduk. Capeknya kebayar, dan aku ngerasa kontribusi aku nyata.",
+            "Kalau kamu penasaran jadi UI Designer, siapin dirimu buat belajar terus. Karena teknologi terus berubah, dan user juga makin kritis. Tapi justru itu yang bikin perjalanan ini seru banget. Setiap project adalah tantangan baru. Setiap solusi adalah cerita baru."
+        ]   
+
+    }
+
+}

@@ -22,7 +22,7 @@ export default function About() {
                         <div className=" content-center w-[40px] h-[40px]"> 
                             <img
                             className=" top-[3.75px] left-[3.75px] w-[32.5px] h-[30px]"
-                            src="/images/vector.png"
+                            src="/images/icon-career-home.png"
                             alt="vector-icon"
                             />
                         </div>

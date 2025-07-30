@@ -90,7 +90,6 @@ export default function Hero() {
                 overflow-hidden
                 bg-[#F7F8F9]
                 p-2
-                sm:p-4
                 md:p-4
                 lg:p-6
                 xl:p-8
@@ -113,28 +112,13 @@ export default function Hero() {
                 />
             </div>
             {/* Gambar kedua */}
-            <div className="
-                relative 
-                w-1/2
-                aspect-[810/729]
-                -skew-x-12
-                overflow-hidden
-                mx-auto
-                p-2
-                top-[50px]
-                sm:p-4
-                md:p-4
-                lg:p-6
-                xl:p-8
-                bg-[#F7F8F9]
+            <div className="relative w-1/2 aspect-[810/729] -skew-x-12 overflow-hidden mx-auto  top-[50px] bg-[#F7F8F9]
+                p-2 md:p-4 lg:p-6 xl:p-8
                 shadow-[inset_-2px_-2px_0px_#00000040,1px_2px_11px_#00000040,inset_0px_2px_0px_#FFFFFF26]
                 md:shadow-[inset_-3px_-3px_0px_#00000040,2px_3px_11px_#00000040,inset_0px_2px_0px_#FFFFFF26]
                 lg:shadow-[inset_-4px_-4px_0px_#00000040,3px_4px_11px_#00000040,inset_0px_2px_0px_#FFFFFF26]
                 xl:shadow-[inset_-6px_-6px_0px_#00000040,3px_4px_11px_#00000040,inset_0px_2px_0px_#FFFFFF26]
-                rounded-[8px]
-                sm:rounded-[10px]
-                md:rounded-[12px]
-                lg:rounded-[14px]
+                rounded-[8px] sm:rounded-[10px] md:rounded-[12px] lg:rounded-[14px]
                 xl:rounded-[16px]
                 ">
                 <img
