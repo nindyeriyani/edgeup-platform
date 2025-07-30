@@ -1,7 +1,7 @@
 "use client";
 
 import { notFound } from "next/navigation";
-import mockTrainings from "@/data/mockTraining"; // array trainings
+import rawData from "@/data/frontend_output.json"; // array trainings
 import { useParams } from "next/navigation";
 import { useSearchParams, useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
@@ -20,7 +20,13 @@ export default function CertificationDetailPage(props, data) {
 
   const router = useRouter();
 
-  const training = mockTrainings.find(
+  // Flatten all recommended_courses from all roles into a single array
+  const allCourses = Object.values(rawData).flatMap(
+    (role) => role.recommended_courses || []
+  );
+
+  // Find the course by slugified title
+  const training = allCourses.find(
     (item) => slugify(item.title, { lower: true }) === slug
   );
 
@@ -68,8 +74,8 @@ export default function CertificationDetailPage(props, data) {
             {/* Image */}
             <div className="w-[full] h-[300px] md:h-full relative rounded overflow-hidden">
               <Image
-                src="/images/preview-course.png"
-                alt="SQL Course"
+                src={training.image_preview_course}
+                alt={training.title}
                 fill
                 className="object-cover rounded"
               />
@@ -79,39 +85,39 @@ export default function CertificationDetailPage(props, data) {
             <div className="bg-white p-6 rounded shadow-md">
               <div className="flex items-center gap-4 mb-4">
                 <Image
-                  src="/images/logo-course.png"
-                  alt="Coursera Logo"
+                  src={training.course_logo}
+                  alt={`${training.course_name} Logo`}
                   width={40}
                   height={40}
                   className="rounded-full"
                 />
                 <p className="text-XL text-[#000] font-semibold mb-1">
-                  {training.provider}
+                  {training.course_name}
                 </p>
               </div>
               <h2 className="text-3xl font-semibold text-[#13171B] leading-tight mb-4 w-5/6">
                 {training.title}
               </h2>
               <p className="text-sm text-[#13171B] mb-1">
-                {training.description}
+                {training.descriptions}
               </p>
 
               <div className="flex flex-wrap gap-2 mb-6">
                 {/* Tag Search */}
                 <Tag
-                  tags={[
-                    "Beginner",
-                    "SQL",
-                    "Data Analyst",
-                    "Query",
-                    "Database",
-                  ]}
+                  tags={training.topic_tags}
                   tagClass="border-[#ACB7C6] text-black"
                   interactive={false}
                   title={false}
                 />
               </div>
-              <Button>
+              <Button
+                onClick={() => {
+                  if (training.link_url) {
+                    window.open(training.link_url, "_blank");
+                  }
+                }}
+              >
                 Enroll Sekarang <ArrowRight size={25} />
               </Button>
             </div>
