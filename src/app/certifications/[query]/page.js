@@ -11,6 +11,8 @@ import ErrorState from "@/components/ErrorState";
 import Image from "next/image";
 import Link from "next/link";
 import slugify from "slugify";
+import rawData from "@/data/frontend_output.json";
+import EmptyState from "@/components/EmptyState";
 
 export default function CertificationSearchResultPage() {
   const router = useRouter();
@@ -18,52 +20,90 @@ export default function CertificationSearchResultPage() {
   const query = decodeURIComponent(params.query || "");
 
   const [searchInput, setSearchInput] = useState(query);
-  const [allTrainings, setAllTrainings] = useState([]);
   const [filters, setFilters] = useState({ levels: [] });
   const [error, setError] = useState(false);
 
-  // Fetch all training data
+  // Truncate text function
+  const truncateText = (text, maxLength = 300) => {
+    if (!text) return "";
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength).trim() + "...";
+  };
+
+  // Check for data loading errors
   useEffect(() => {
     try {
-      const data = require("@/data/mockTraining");
-      setAllTrainings(data.default || data);
-    } catch (e) {
-      console.error("Failed to load training data", e);
+      if (!rawData || typeof rawData !== "object") {
+        setError(true);
+      }
+    } catch (err) {
       setError(true);
     }
   }, []);
 
-  // Update input value when URL query changes
-  useEffect(() => {
-    setSearchInput(query);
-  }, [query]);
+  // Normalisasi teks
+  const normalize = (text) =>
+    text?.toLowerCase().replace(/[^a-z0-9]+/g, "") ?? "";
 
-  // Normalization helper
-  function normalize(text) {
-    return text.toLowerCase().replace(/[^a-z0-9]+/g, "");
-  }
+  // Transform the object into an array of roles with their data
+  const allRoles = Object.entries(rawData).map(([role, data]) => ({
+    role,
+    ...data,
+  }));
 
-  // Filter trainings
-  const filteredTrainings = allTrainings.filter((item) => {
-    const normalizedTitle = normalize(item.title);
-    const normalizedQuery = normalize(query);
+  const filteredRoles = allRoles.filter((item) => {
+    const normalizedQuery = normalize(searchInput);
+    const normalizedRole = normalize(item.role);
+    const normalizedTopicTags = (item.associated_topic_tags || []).map(
+      normalize
+    );
+    const normalizedLearningPaths = (item.associated_learning_paths || []).map(
+      normalize
+    );
 
+    // Match if query is in any topic tag or learning path
     const matchQuery =
-      normalizedTitle.includes(normalizedQuery) || query === ""; // jika query kosong, tampilkan semua
+      normalizedRole.includes(normalizedQuery) ||
+      normalizedTopicTags.some((tag) => tag.includes(normalizedQuery)) ||
+      normalizedLearningPaths.some((path) => path.includes(normalizedQuery)) ||
+      searchInput === "";
 
-    const matchLevel =
-      filters.levels.length === 0 ||
-      filters.levels.includes(item.level?.toLowerCase());
-
-    return matchQuery && matchLevel;
+    return matchQuery;
   });
 
-  if (error) return <ErrorState />;
+  const filteredTrainings = filteredRoles
+    .flatMap((item) => item.recommended_courses || [])
+    .filter((course) => {
+      // Normalize course level
+      const courseLevel = (course.level || "").toLowerCase();
+      let normalizedLevel = "";
+      if (courseLevel.includes("dasar")) {
+        normalizedLevel = "beginner";
+      } else if (courseLevel.includes("menengah")) {
+        normalizedLevel = "intermediate";
+      } else if (courseLevel.includes("mahir")) {
+        normalizedLevel = "advanced";
+      }
+
+      // If no levels are selected, show all
+      if (filters.levels.length === 0) return true;
+      // Otherwise, only show if the course's normalized level is in the selected levels
+      return filters.levels.includes(normalizedLevel);
+    });
+
+  // If there's an error, render ErrorState
+  if (error) {
+    return <ErrorState />;
+  }
+
+  // If no results, render EmptyState page
+  if (filteredTrainings.length === 0 && searchInput !== "") {
+    return <EmptyState searchQuery={searchInput} />;
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar active="certifications" />
-
       <main className="flex-grow bg-gray-100 pt-20">
         <section className="py-12 px-4 max-w-7xl mx-auto">
           {/* Heading */}
@@ -76,7 +116,7 @@ export default function CertificationSearchResultPage() {
             </p>
           </div>
 
-          {/* Search Bar */}
+          {/* Search */}
           <div className="mb-8">
             <SearchBar
               query={searchInput}
@@ -89,18 +129,16 @@ export default function CertificationSearchResultPage() {
 
           {/* Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-10">
-            {/* Filter Sidebar */}
             <FilterSidebar
               onChange={(newFilters) =>
                 setFilters((prev) => ({ ...prev, ...newFilters }))
               }
             />
 
-            {/* Results */}
             <div>
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-lg font-semibold text-black">
-                  Hasil dari "{query}"
+                  Hasil dari "{searchInput}"
                 </h2>
                 <div className="text-sm font-semibold text-gray-700">
                   Sort by: <span className="font-normal">Most relevant</span>{" "}
@@ -116,28 +154,30 @@ export default function CertificationSearchResultPage() {
 
               {/* Card Results */}
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {filteredTrainings.length > 0 ? (
-                  filteredTrainings.map((training, index) => (
-                    <Link
-                      key={index}
-                      href={`/certifications/detail/${slugify(training.title, {
-                        lower: true,
-                      })}?from=${encodeURIComponent(query)}`}
-                    >
-                      <TrainingCard data={training} />
-                    </Link>
-                  ))
-                ) : (
-                  <p className="text-center text-gray-500">
-                    Tidak ada hasil yang cocok untuk "{query}"
-                  </p>
-                )}
+                {filteredTrainings.map((training, index) => (
+                  <TrainingCard
+                    key={index}
+                    data={{
+                      image: training.image_preview_course,
+                      logo: training.course_logo,
+                      provider: training.course_name,
+                      title: training.title,
+                      description: truncateText(training.descriptions, 300),
+                      link: training.link_url,
+                      detailLink: `/certifications/detail/${slugify(
+                        training.title,
+                        {
+                          lower: true,
+                        }
+                      )}?from=${encodeURIComponent(searchInput)}`,
+                    }}
+                  />
+                ))}
               </div>
             </div>
           </div>
         </section>
       </main>
-
       <Footer />
     </div>
   );

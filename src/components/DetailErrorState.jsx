@@ -14,6 +14,11 @@ export default function DetailErrorState() {
   const fromQuery = searchParams.get("from");
   const router = useRouter();
 
+  const handleRetry = () => {
+    // Use router.refresh() instead of window.location.reload()
+    router.refresh();
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar active="certifications" />
@@ -65,7 +70,7 @@ export default function DetailErrorState() {
               Ups, kami belum bisa menampilkan data. Silakan refresh!
             </p>
             <div className="flex justify-center">
-              <Button onClick={() => window.location.reload()}>
+              <Button onClick={handleRetry}>
                 Coba Lagi? <RotateCcw size={18} className="ml-2" />
               </Button>
             </div>

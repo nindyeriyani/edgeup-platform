@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
@@ -8,7 +10,14 @@ import Tag from "@/components/Tag";
 import TrainingCard from "@/components/TrainingCard";
 import trainings from "@/data/mockTraining";
 
-export default function EmptyState() {
+export default function EmptyState({ searchQuery }) {
+  const router = useRouter();
+  const [searchInput, setSearchInput] = useState(searchQuery || "");
+
+  const handleSearch = (keyword) => {
+    router.push(`/certifications/${encodeURIComponent(keyword)}`);
+  };
+
   return (
     <div className="flex flex-col min-h-screen text-black">
       <Navbar active="certifications" />
@@ -19,10 +28,9 @@ export default function EmptyState() {
           </h1>
           <div className="w-full max-w-xl mx-auto mb-10">
             <SearchBar
-              query="SQL untuk Data Analyst"
-              setQuery={() => {}}
-              onSearch={() => {}}
-              disabled
+              query={searchInput}
+              setQuery={setSearchInput}
+              onSearch={handleSearch}
             />
           </div>
           <div className="mb-8 flex justify-center">
@@ -34,7 +42,7 @@ export default function EmptyState() {
             />
           </div>
           <p className="mb-6 text-lg">
-            Hmm, sepertinya belum ada yang cocok dengan 'SQL untuk Data Analyst'
+            Hmm, sepertinya belum ada yang cocok dengan '{searchQuery}'
           </p>
           <div className="flex justify-center items-center gap-2 flex-wrap">
             <span className="font-semibold text-xl">Cari keyword serupa:</span>
