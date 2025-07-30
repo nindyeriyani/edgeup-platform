@@ -26,6 +26,7 @@ export default function Navbar({ active }) {
         >
           Certification & Training
         </li>
+
         <li
           className={`${
             active === "job-trends"
@@ -45,10 +46,9 @@ export default function Navbar({ active }) {
           {" "}
           Career Stories
         </li>
-
-         <li
+        <li
           className={`${
-            active === "roadmoap"
+            active === "roadmap"
               ? "text-white"
               : "text-[#ACB7C6] hover:text-white"
           }`}

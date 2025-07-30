@@ -8,7 +8,12 @@ const options = [
   "Software & Development",
 ];
 
-export default function JobCategoryDropdown({ selected, onSelect }) {
+export default function JobCategoryDropdown({
+  options,
+  selected,
+  onSelect,
+  placeholder,
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSelect = (value) => {
@@ -22,7 +27,7 @@ export default function JobCategoryDropdown({ selected, onSelect }) {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full text-left px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-800 flex justify-between items-center shadow-sm hover:border-gray-400 focus:outline-none"
       >
-        <span>{selected || "Bidang Pekerjaan"}</span>
+        <span>{selected || placeholder}</span>
         <ChevronDown size={18} />
       </button>
 
