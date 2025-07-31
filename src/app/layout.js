@@ -20,14 +20,14 @@ const nunito = Nunito_Sans({
 export const metadata = {
   title: "EdgeUp Platform",
   description: "Platform pelatihan dan sertifikasi masa depan",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.png" sizes="any" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${nunito.variable} antialiased`}
       >
