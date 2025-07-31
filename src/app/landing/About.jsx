@@ -1,81 +1,81 @@
 import Button from "@/components/PrimaryButton";
 import Link from "next/link";
+
 export default function About() {
   return (
-    <section id="about"className=" bg-[#FFFFFF] mt-20 top-[980px]  max-h-[680px] w-full">
-      <div className="flex flex-col gap-[72px] items-center max-w-screen py-[60px]  min-h-[561.42px]">
-            {/* frame 1 */}
-            <div className="flex flex-row items-center gap-[100px]">
-                <img src="/images/cuate.png" alt="abut-image" className="w-full h-full" />
-                <div className="flex flex-col gap-[48px] max-w-[426px]">
-                    <div className="flex flex-col w-[244px] h-[38px] border-b border-b-[#000000] ">
-                        <p className=" font-semibold text-[32px] leading-[120%]">Tentang EdgeUp</p>
-                    </div>
-                    <p className="font-normal text-[16px] leading-[140%] w-full">EdgeUp adalah sebuah platform prediksi karier dalam ranah teknologi berbasis web yang menjadi pemandu personal bagi mahasiswa dan pencari kerja fresh-graduate di Indonesia untuk memahami tren pekerjaan masa depan. </p>
-                </div>
+    <section id="about" className="bg-white mt-20 w-full">
+      <div className="flex flex-col gap-12 md:gap-16 items-center max-w-screen px-4 sm:px-6 md:px-12 py-10 sm:py-[60px]">
+        {/* Frame 1 */}
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 w-full max-w-6xl">
+          <img
+            src="/images/cuate.png"
+            alt="about-image"
+            className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px] object-contain"
+          />
+          <div className="flex flex-col gap-4 md:gap-6 max-w-full md:max-w-[420px] px-2 md:px-0 text-center md:text-left">
+            <div className="border-b border-black w-fit mx-auto md:mx-0">
+              <p className="font-semibold text-lg sm:text-xl md:text-2xl leading-tight">
+                Tentang EdgeUp
+              </p>
             </div>
-            {/* frame 2*/}
-            <div className=" flex flex-col items-center gap-[64px]">
-                {/* cards */}
-                <div className=" flex flex-row gap-[48px] w-full ">   
-                    {/* Card 1 */}
-                    <div className=" items-center flex flex-col gap-[10px] w-[297px]">
-                        <div className=" content-center w-[40px] h-[40px]"> 
-                            <img
-                            className=" top-[3.75px] left-[3.75px] w-[32.5px] h-[30px]"
-                            src="/images/icon-career-home.png"
-                            alt="icon"
-                            />
-                        </div>
-                        <div className=" flex flex-col w-[297px] h-[76px]">  
-                            <p className=" font-semibold text-[20px] leading-[120%] text-center text-[#13171B]">Cerita Profesional</p>
-                            <p className=" font-normal text-[16px] leading-[140%] text-center text-[#35414D]">
-                            Baca kisah nyata dari profesional dunia kerja.
-                            </p>
-                        </div>
-                    </div>
-                    {/* Card 2 */}
-                    <div className=" items-center flex flex-col gap-[10px] w-[297px]">
-                        <div className=" content-center w-[40px] h-[40px]"> 
-                            <img
-                            className=" top-[3.75px] left-[3.75px] w-[32.5px] h-[30px]"
-                            src="/images/icon-recommendation-pelatihan.png"
-                            alt="icon"
-                            />
-                        </div>
-                        <div className=" flex flex-col w-[297px] h-[76px]">  
-                            <p className=" font-semibold text-[20px] leading-[120%] text-center text-[#13171B]">Rekomendasi Pelatihan</p>
-                            <p className=" font-normal text-[16px] leading-[140%] text-center text-[#35414D]">
-                            Temukan pelatihan sesuai peran yang kamu cari.
-                            </p>
-                        </div>
-                    </div>
-                    {/* Card 3 */}
-                    <div className=" items-center flex flex-col gap-[10px] w-[297px]">
-                        <div className=" content-center w-[40px] h-[40px]"> 
-                            <img
-                            className=" top-[3.75px] left-[3.75px] w-[32.5px] h-[30px]"
-                            src="/images/icon-roadmap-karir.png"
-                            alt="icon"
-                            />
-                        </div>
-                        <div className=" flex flex-col w-[297px] h-[76px]">  
-                            <p className=" font-semibold text-[20px] leading-[120%] text-center text-[#13171B]">Roadmap Kerja</p>
-                            <p className=" font-normal text-[16px] leading-[140%] text-center text-[#35414D]">
-                            Lihat langkah-langkah skill & posisi di tiap level.
-                            </p>
-                        </div>
-                    </div>
+            <p className="text-sm sm:text-base font-normal leading-relaxed text-justify md:text-left">
+              EdgeUp adalah sebuah platform prediksi karier dalam ranah teknologi berbasis web yang menjadi pemandu personal bagi mahasiswa dan pencari kerja fresh-graduate di Indonesia untuk memahami tren pekerjaan masa depan.
+            </p>
+          </div>
+        </div>
+
+        {/* Frame 2 */}
+        <div className="flex flex-col items-center gap-10 md:gap-16 w-full">
+          {/* Cards */}
+          <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-10 flex-wrap w-full px-2 md:px-0">
+            {[
+              {
+                img: "/images/icon-career-home.png",
+                title: "Cerita Profesional",
+                desc: "Baca kisah nyata dari profesional dunia kerja.",
+              },
+              {
+                img: "/images/icon-recommendation-pelatihan.png",
+                title: "Rekomendasi Pelatihan",
+                desc: "Temukan pelatihan sesuai peran yang kamu cari.",
+              },
+              {
+                img: "/images/icon-roadmap-karir.png",
+                title: "Roadmap Kerja",
+                desc: "Lihat langkah-langkah skill & posisi di tiap level.",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center gap-2 sm:gap-3 w-full sm:w-[240px] px-4 text-center"
+              >
+                <div className="w-10 h-10 flex justify-center items-center">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-[32px] h-[30px]"
+                  />
                 </div>
-                {/* Button */  }
-                <div className="max-w-[253px] h-[62px]"> 
-                    <Link href="#recommendation">
-                        <Button className="large">Mulai Eksplorasi</Button>
-                    </Link>  
-                    
+                <div>
+                  <p className="text-base sm:text-lg font-semibold text-[#13171B]">
+                    {item.title}
+                  </p>
+                  <p className="text-sm sm:text-base font-normal text-[#35414D] leading-[140%]">
+                    {item.desc}
+                  </p>
                 </div>
-            </div>
-         </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Button */}
+          <div className="w-fit">
+            <Link href="#recommendation">
+              <Button className="large">Mulai Eksplorasi</Button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

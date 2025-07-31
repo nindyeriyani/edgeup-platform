@@ -27,6 +27,7 @@ export default function StoriesPage() {
                         date="5 Juli 2025"
                         desc="Dari buka dashboard sampai presentasi ke tim, Nabila cerita gimana kerjaan analis tuh lebih dari sekadar angka."
                         image="/images/avatar-cardstories-person1.png"
+                        link="/stories/cerita-1"
                         />
                         <CareerStoriesCard
                         title="Hidup Engineer: Seru atau Pusing?"
@@ -36,6 +37,7 @@ export default function StoriesPage() {
                         date="8 Juli 2025"
                         desc="Dari review PR sampai ngoding modul baru, Dimas cerita keseharian sebagai engineer di dunia fintech."
                         image="/images/avatar-cardstories-person2.png"
+                        link="/stories/cerita-2"
                         />
                         <CareerStoriesCard
                         title="Sehari Jadi UI Designer: Dari Brief Sampai Prototipe"
@@ -45,6 +47,7 @@ export default function StoriesPage() {
                         date="14 Juli 2025"
                         desc="Gimana rasanya jadi UI Designer seharian? Cerita ini ngebahas mulai dari brainstorming sampai prototipe di Figma."
                         image="/images/avatar-cardstories-person3.png"
+                        link="/stories/cerita-6"
                         />
                     
                 </div>

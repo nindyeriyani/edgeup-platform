@@ -1,8 +1,9 @@
 // CareerCard component
 "use client";
+import Link from "next/link";
 import Button from "./PrimaryButton";
 
-export default function CareerCard({ title, name, role, company, date, desc, image }) {
+export default function CareerCard({ title, name, role, company, date, desc, image, link }) {
   return (
     <div className="w-full max-w-[339px] h-auto min-h-[306px] bg-white rounded-xl p-5 flex flex-col font-['Nunito_Sans'] shadow-md border border-[#FFF4E4] justify-between" >
       {/* Title */}
@@ -26,9 +27,12 @@ export default function CareerCard({ title, name, role, company, date, desc, ima
       <div className="mt-auto flex flex-col">
         <p className="font-medium text-xs text-[#303B45] mb-2">{date}</p>
         <div className="w-full">
-            <Button>
-            Baca Cerita 
-            </Button>
+            
+              <Button>
+                <Link href={link}>Baca Cerita</Link>
+              </Button>
+            
+            
         </div>
       </div>
     </div>
