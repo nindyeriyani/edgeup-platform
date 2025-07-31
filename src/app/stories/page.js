@@ -6,8 +6,6 @@ import CareerStoriesCard from "@/components/CareerStoriesCard";
 
 
 export default function StoriesPage() {
- 
-
   return (
     <div className=" flex flex-col min-h-screen">
       <Navbar active="stories"/>

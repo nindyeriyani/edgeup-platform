@@ -2,7 +2,6 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CareerStoriesCard from "@/components/CareerStoriesCard";
 import SearchBar from "@/components/SearchBar2";
 import SecondaryButton from "@/components/SecondaryButton";
 
@@ -16,7 +15,7 @@ export default function RoadmapPage() {
     const roadmap = roadmapData[slug] || null;
   return (
     <div className=" flex flex-col min-h-screen">
-      <Navbar active="stories"/>
+      <Navbar active="roadmap"/>
       <main className=" flex-grow bg-[#F7F8F9] pt-20 font-['Nunito_Sans']">
         <section className="py-8 md:py-16 px-8 md:px-24 lg:px-54 bg-[#F7F8F9]">
             <div className="flex flex-col mx-auto gap-6 items-center" >
@@ -55,7 +54,7 @@ export default function RoadmapPage() {
                     <SecondaryButton
                         showLeftIcon={false}
                         showRightIcon={false}
-                        href="/career-roadmap"
+                        href="/roadmap/ui ux designer"
                         >
                         UI/UX Designer
                     </SecondaryButton>
@@ -63,7 +62,7 @@ export default function RoadmapPage() {
                     <SecondaryButton
                         showLeftIcon={false}
                         showRightIcon={false}
-                        href="/career-roadmap"
+                        href="/roadmap/Data Analyst"
                         >
                         Data Analyst
                     </SecondaryButton>
@@ -72,7 +71,7 @@ export default function RoadmapPage() {
                     <SecondaryButton
                         showLeftIcon={false}
                         showRightIcon={false}
-                        href="/career-roadmap"
+                        href="/roadmap/Software Engineer"
                         >
                         Software Engineer
                     </SecondaryButton>
@@ -81,7 +80,7 @@ export default function RoadmapPage() {
                     <SecondaryButton
                         showLeftIcon={false}
                         showRightIcon={false}
-                        href="/career-roadmap"
+                        href="/roadmap/Product Manager"
                         >
                         Product Management
                     </SecondaryButton>
@@ -89,7 +88,7 @@ export default function RoadmapPage() {
                     <SecondaryButton
                         showLeftIcon={false}
                         showRightIcon={false}
-                        href="/career-roadmap"
+                        href="/roadmap/Machine Learning"
                         >
                         Machine Learning
                     </SecondaryButton>
@@ -97,7 +96,7 @@ export default function RoadmapPage() {
                     <SecondaryButton
                         showLeftIcon={false}
                         showRightIcon={false}
-                        href="/career-roadmap"
+                        href="/roadmap/Digital Product"
                         >
                         Digital Product
                     </SecondaryButton>
