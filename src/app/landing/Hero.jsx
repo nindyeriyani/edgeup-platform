@@ -7,19 +7,19 @@ export default function Hero() {
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-6 md:gap-2 lg:gap-4 xl:gap-10 items-center justify-center px-4 sm:px-6">
     
     {/* Kolom Kiri (Stack Mobile) */}
-    <div className="flex justify-center md:justify-start gap-3 md:pl-20 lg:pl-24 xl:pl-30 mb-6 md:mb-0">
-      <div className="flex flex-col translate-y-0 md:translate-y-17 lg:translate-y-19 xl:translate-y-21 gap-3">
+    <div className="flex justify-center md:justify-start gap-12 md:gap-3 md:pl-20 lg:pl-24 xl:pl-30 mb-6 md:mb-0">
+      <div className="flex flex-col translate-y-8 md:translate-y-17 lg:translate-y-19 xl:translate-y-21 gap-3">
         <img
-          src="/images/icon-linkedin-learning.png"
-          alt="LinkedIn Learning"
-          className="w-12 h-12 md:w-16 md:h-16 rounded-[12px] md:rounded-[16px] shadow-md border border-[#F3F4F6]"
+          src="/images/logo-dicoding.png"
+          alt="icon"
+          className="w-12 h-12 md:w-16 md:h-16 rounded-[12px] md:rounded-[16px] shadow-md border border-[#F3F4F6] bg-white"
         />
       </div>
       <div className="flex flex-col gap-6 md:gap-18 lg:gap-22 xl:gap-26">
         <img
-          src="/images/icon-datacamp.png"
-          alt="Datacamp"
-          className="w-12 h-12 md:w-16 md:h-16 rounded-[12px] md:rounded-[16px] shadow-md border border-[#F3F4F6]"
+          src="/images/logo-course.png"
+          alt="icon"
+          className="w-12 h-12 md:w-16 md:h-16 rounded-[12px] md:rounded-[16px] shadow-md bg-white border border-[#F3F4F6]"
         />
         <img
           src="/images/logo-udemy.png"
@@ -41,16 +41,16 @@ export default function Hero() {
       </div>
       <div className="flex flex-col sm:flex-row gap-3 md:gap-[12px]">
         <Link href="#recommendation">
-          <PrimaryButton className="small sm:large">Yuk Mulai Belajar Sekarang</PrimaryButton>
+          <PrimaryButton large >Yuk Mulai Belajar Sekarang</PrimaryButton>
         </Link>
         <Link href="#about">
-          <SecondaryButton className="small">Pelajari Dulu</SecondaryButton>
+          <SecondaryButton large>Pelajari Dulu</SecondaryButton>
         </Link>
       </div>
     </div>
 
     {/* Kolom Kanan (Stack Mobile) */}
-    <div className="flex justify-center md:justify-end gap-3 md:pr-20 lg:pr-24 xl:pr-30 mt-6 md:mt-0">
+    <div className="flex justify-center md:justify-end gap-12 md:gap-3 md:pr-20 lg:pr-24 xl:pr-30 mt-6 md:mt-0">
       <div className="flex flex-col gap-6 md:gap-18 lg:gap-22 xl:gap-26">
         <img
           src="/images/icon-datacamp.png"
@@ -58,14 +58,14 @@ export default function Hero() {
           className="w-12 h-12 md:w-16 md:h-16 rounded-[12px] md:rounded-[16px] shadow-md border border-[#F3F4F6]"
         />
         <img
-          src="/images/logo-udemy.png"
+          src="/images/icon-linkedin-learning.png"
           alt="Udemy"
           className="w-12 h-12 md:w-16 md:h-16 rounded-[12px] md:rounded-[16px] shadow-md border border-[#F3F4F6]"
         />
       </div>
-      <div className="flex flex-col translate-y-0 md:translate-y-17 lg:translate-y-19 xl:translate-y-21 gap-3">
+      <div className="flex flex-col translate-y-8 md:translate-y-17 lg:translate-y-19 xl:translate-y-21 gap-3 bg-white ">
         <img
-          src="/images/icon-linkedin-learning.png"
+          src="/images/icon-myskill.png"
           alt="LinkedIn Learning"
           className="w-12 h-12 md:w-16 md:h-16 rounded-[12px] md:rounded-[16px] shadow-md border border-[#F3F4F6]"
         />
@@ -74,16 +74,27 @@ export default function Hero() {
   </div>
 
   {/* Gambar Skew */}
-  <div className="max-w-screen-xl px-4 mt-16 md:mt-28">
-    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 scale-[0.8] sm:scale-[1.1] md:scale-145 lg:scale-140 xl:scale-115">
-      <div className="relative w-full sm:w-1/2 aspect-[810/729] -skew-x-12 overflow-hidden bg-[#F7F8F9] p-2 md:p-6 shadow-[...] rounded-[8px] md:rounded-[14px] xl:rounded-[16px]">
+  <div className="max-w-screen-xl px-4 mt-1 md:mt-28">
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 scale-[0.8] sm:scale-[1.1] md:scale-145 lg:scale-140 xl:scale-115 mb-[-340px]">
+      <div className="relative w-full sm:w-1/2 aspect-[810/729] -skew-x-12 overflow-hidden bg-[#F7F8F9] p-2 md:p-6  rounded-[8px] md:rounded-[14px] xl:rounded-[16px] 
+        shadow-[inset_-2px_-2px_0px_#00000040,1px_2px_11px_#00000040,inset_0px_2px_0px_#FFFFFF26]
+        md:shadow-[inset_-3px_-3px_0px_#00000040,2px_3px_11px_#00000040,inset_0px_2px_0px_#FFFFFF26]
+        lg:shadow-[inset_-4px_-4px_0px_#00000040,3px_4px_11px_#00000040,inset_0px_2px_0px_#FFFFFF26]
+        xl:shadow-[inset_-6px_-6px_0px_#00000040,3px_4px_11px_#00000040,inset_0px_2px_0px_#FFFFFF26]
+
+      ">
         <img
           src="/images/certification-page.png"
           alt="Gambar"
           className="w-full h-auto object-cover mt-[-12px]"
         />
       </div>
-      <div className="relative w-full sm:w-1/2 aspect-[810/729] -skew-x-12 overflow-hidden bg-[#F7F8F9] p-2 md:p-6 shadow-[...] rounded-[8px] md:rounded-[14px] xl:rounded-[16px] top-4 sm:top-[50px]">
+      <div className="relative w-full sm:w-1/2 aspect-[810/729] -skew-x-12 overflow-hidden bg-[#F7F8F9] p-2 md:p-6 rounded-[8px] md:rounded-[14px] xl:rounded-[16px] top-4 sm:top-[50px]
+      shadow-[inset_-2px_-2px_0px_#00000040,1px_2px_11px_#00000040,inset_0px_2px_0px_#FFFFFF26]
+                md:shadow-[inset_-3px_-3px_0px_#00000040,2px_3px_11px_#00000040,inset_0px_2px_0px_#FFFFFF26]
+                lg:shadow-[inset_-4px_-4px_0px_#00000040,3px_4px_11px_#00000040,inset_0px_2px_0px_#FFFFFF26]
+                xl:shadow-[inset_-6px_-6px_0px_#00000040,3px_4px_11px_#00000040,inset_0px_2px_0px_#FFFFFF26]
+      ">
         <img
           src="/images/career-roadmap-page.png"
           alt="Gambar"

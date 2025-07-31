@@ -25,11 +25,11 @@ export default function RoadmapPage() {
     <div className="flex flex-col min-h-screen">
       <Navbar active="roadmap" />
       <main className="flex-grow bg-[#F7F8F9] pt-20 font-['Nunito_Sans']">
-        <section className="py-8 md:py-16 px-4 sm:px-6 md:px-10 bg-[#F7F8F9]">
-          <div className="flex flex-col gap-6 items-center">
+        <section className="py-8 md:py-16 px-4 sm:px-6 md:px-6 bg-[#F7F8F9]">
+          <div className="flex flex-col gap-6 md: px-6 items-center">
             {/* Top Content */}
-            <div className="flex flex-col md:flex-row gap-6 items-center md:items-start text-center md:text-left">
-              <div className="w-[160px] h-[160px] sm:w-[220px] sm:h-[220px] md:w-44 md:h-60">
+            <div className="flex flex-col md:flex-row gap-6 items-center md:px-48 md:items-start text-center md:text-left">
+              <div className="w-[160px] h-[160px] sm:w-[220px] sm:h-[220px] md:w-60 md:h-40">
                 {roadmap === null ? (
                   <img
                     src="/images/icon-roadmap-page.png"
@@ -45,12 +45,12 @@ export default function RoadmapPage() {
                 ) : null}
               </div>
 
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 ">
                 <p className="font-semibold text-[24px] sm:text-[32px] md:text-[40px] leading-[110%] text-[#13171B]">
                   {roadmap === null
                     ? "Yuk, cari tahu arah karier kamu!"
                     : !roadmap.found
-                    ? "Oops.. Belum ada roadmap untuk minat kamu"
+                    ? <span>"Oops.. <br /> Belum ada roadmap untuk minat kamu"</span>
                     : null}
                 </p>
                 <p className="font-normal text-[14px] sm:text-[16px] leading-[140%] text-[#13171B]">
@@ -64,12 +64,12 @@ export default function RoadmapPage() {
             </div>
 
             {/* Search */}
-            <div className="w-full max-w-2xl">
+            <div className="w-full px-12 md:px-36">
               <SearchBar />
             </div>
 
             {/* Category Buttons */}
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex flex-col lg:flex-row justify-center gap-2">
               <SecondaryButton
                 showLeftIcon={false}
                 showRightIcon={false}

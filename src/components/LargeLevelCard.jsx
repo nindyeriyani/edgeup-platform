@@ -15,7 +15,7 @@ export default function LevelCard({ level, role, skills, alat, sertifikasi }) {
           {/* KEAHLIAN */}
           <div className="flex flex-col p-3 flex-1">
             <div className="flex gap-2 items-start mb-1">
-              <img src="/images/icon-skills.png" alt="icon" className="w-5 h-5 min-w-[20px]" />
+              <img src="/images/icon-keahlian.png" alt="icon" className="w-5 h-5 min-w-[20px]" />
               <p className="font-semibold text-[14px] leading-[140%]">Keahlian</p>
             </div>
             <ul className="list-disc ml-5 text-[14px] text-[#13171B] leading-[140%]">
@@ -28,7 +28,7 @@ export default function LevelCard({ level, role, skills, alat, sertifikasi }) {
           {/* TOOLS */}
           <div className="flex flex-col p-3 flex-1">
             <div className="flex gap-2 items-start mb-1">
-              <img src="/images/icon-skills.png" alt="icon" className="w-5 h-5 min-w-[20px]" />
+              <img src="/images/icon-tools.png" alt="icon" className="w-5 h-5 min-w-[20px]" />
               <p className="font-semibold text-[14px] leading-[140%]">Tools</p>
             </div>
             <ul className="list-disc ml-5 text-[14px] text-[#13171B] leading-[140%]">
@@ -41,7 +41,7 @@ export default function LevelCard({ level, role, skills, alat, sertifikasi }) {
           {/* SERTIFIKASI */}
           <div className="flex flex-col p-3 flex-1">
             <div className="flex gap-2 items-start mb-1">
-              <img src="/images/icon-skills.png" alt="icon" className="w-5 h-5 min-w-[20px]" />
+              <img src="/images/icon-sertifikasi.png" alt="icon" className="w-5 h-5 min-w-[20px]" />
               <p className="font-semibold text-[14px] leading-[140%]">Sertifikasi</p>
             </div>
             <ul className="list-disc ml-5 text-[14px] text-[#13171B] leading-[140%]">

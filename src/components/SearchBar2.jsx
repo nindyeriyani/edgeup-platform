@@ -8,6 +8,7 @@ export default function SearchBar() {
   const [query, setQuery] = useState("");
   const [showHistory, setShowHistory] = useState(false);
   const ref = useRef(null);
+
   const history = [
     "Data Analyst",
     "Cloud Computing",
@@ -18,8 +19,7 @@ export default function SearchBar() {
 
   const handleSearch = () => {
     if (query.trim().toLowerCase() === "data analyst") {
-      const slug = "data-analyst";
-      router.push(`/roadmap/${slug}`);
+      router.push(`/roadmap/data-analyst`);
       setShowHistory(false);
     }
   };
@@ -37,15 +37,13 @@ export default function SearchBar() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
-    <div className="w-[864px] relative" ref={ref}>
+    <div className="w-full max-w-[1280px] mx-auto relative px-4 md:px-0" ref={ref}>
       <div
-        className="flex items-center border border-[#ACB7C6] rounded-[8px] bg-white px-4 py-3 gap-2"
+        className="flex items-center border border-[#ACB7C6] rounded-[8px] bg-white px-3 py-2 md:px-4 md:py-3 gap-2"
         onClick={() => setShowHistory(true)}
       >
         <input
@@ -53,7 +51,7 @@ export default function SearchBar() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={showHistory ? "Ketik sesuatu.." : "Misalnya Data Analyst"}
-          className="flex-1 outline-none text-base font-normal"
+          className="flex-1 outline-none text-sm md:text-base font-normal"
           onKeyDown={(e) => {
             if (e.key === "Enter") handleSearch();
           }}

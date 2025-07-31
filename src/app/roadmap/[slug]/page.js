@@ -10,22 +10,24 @@ export default function RoadmapResult() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar active="roadmap" />
-      <main className="flex-grow bg-[#F7F8F9] pt-[100px] px-4 md:px-12 font-['Nunito_Sans']">
+      <main className="flex-grow bg-[#F7F8F9] pt-[100px] px-4 md:px-12 pb-10 font-['Nunito_Sans']">
         <div className="flex flex-col gap-12">
           {/* Header */}
-          <div className="flex flex-col md:flex-row gap-4 items-center md:items-start md:justify-between">
-            <Button small className="self-start">
+          <div className="flex flex-row md:gap-4 items-center md:items-start ">
+            <div className="w-14 md:w-12 h-10">
+                <Button small className="self-start">
               <Link href="/roadmap">
-                <img src="/images/icon-back.png" alt="back" className="w-5 h-5" />
+                <img src="/images/icon-back.png" alt="back" className=" object-contain" />
               </Link>
             </Button>
-            <p className="font-bold text-[20px] md:text-[32px] leading-[120%] text-center text-[#13171B] px-4 md:px-0">
+            </div>
+            <p className="font-bold text-[20px] md:text-[32px] leading-[120%] text-center text-[#13171B] px-4 md:px-56">
               Roadmap Karir untuk Data Analyst
             </p>
           </div>
 
           {/* Konten Utama */}
-          <div className="flex flex-col md:flex-row gap-8 md:gap-6 items-center md:items-start">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-8 items-center md:items-start">
             {/* Bagian Level Card */}
             <div className="w-full md:w-auto flex flex-col gap-4">
               {roadmap["Data Analyst"].levels.map((level) => (
@@ -41,7 +43,7 @@ export default function RoadmapResult() {
             </div>
 
             {/* Sidebar */}
-            <div className="w-full md:w-[400px] flex flex-col items-center gap-6 md:gap-10">
+            <div className="w-full md:w-[480px] flex flex-col items-center gap-6 md:gap-12">
               <img
                 src="/images/roadmap-page.png"
                 alt="roadmap"
