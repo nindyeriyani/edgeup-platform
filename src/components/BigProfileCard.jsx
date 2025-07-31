@@ -17,11 +17,11 @@ export default function ProfileCard({ name, role, company,image,location, toolIc
                         <p className="font-semibold text-sm leading-[1.4] text-[#181D23] ">{name}</p>
                     </div>
                     <div className="flex flex-row w-full gap-[8px]">
-                        <img src="/images/icon-user.png" alt="icon" className="w-[16px] h-[16px] object-cover" />
+                        <img src="/images/icon-company.png" alt="icon" className="w-[16px] h-[16px] object-cover" />
                         <p className="font-semibold text-sm leading-[1.4] text-[#35414D]">{role} @ {company}</p>
                     </div>
                     <div className="flex flex-row w-full gap-[8px] items-center">
-                        <img src="/images/icon-user.png" alt="icon" className="w-[16px] h-[16px] object-cover" />
+                        <img src="/images/icon-location.png" alt="icon" className="w-[16px] h-[16px] object-cover" />
                         <p className="text-xs leading-none font-normal text-[#303B45] ">{location}</p>
                     </div>
                 </div>

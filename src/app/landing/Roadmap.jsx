@@ -10,7 +10,7 @@ export default function Roadmap() {
                 </p>
             </div>
             <div className="flex flex-col gap-[56px] w-[802px] mx-auto">
-                <img src="/images/amico.png" alt="roadmap-image" className="w-[350px] h-[321.58px] mx-auto" />
+                <img src="/images/roadmap-page.png" alt="roadmap-image" className="w-[350px] h-[321.58px] mx-auto" />
                 <div className="flex flex-col gap-[24px] w-full justify-between">
                     <div className="w-full  flex flex-row gap-[32px]">
                         <LevelCard level=" Entry-Level" role="Junior Data Analyst" skills="Dasar SQL, Excel" alat="MySQL, Looker" sertifikasi="Belajar SQL" />

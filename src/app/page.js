@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen w-full">
       <Navbar />
-      <main className="pt-[90px] bg-[#F7F8F9] w-full font-['Nunito_Sans'] min-h-screen overflow-hidden">
+      <main className="pt-[80px] bg-[#F7F8F9] w-full font-['Nunito_Sans'] min-h-screen overflow-hidden">
         <Hero />
         <About />
         <Recommendation />

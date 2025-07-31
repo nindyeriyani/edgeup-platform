@@ -4,7 +4,7 @@ import { Share2, Check } from "lucide-react";
 import Image from "next/image";
 import Button from "./SecondaryButton";
 
-export default function TrainingCard( {banner, provider, logo, title, description}) {
+export default function TrainingCard( {banner, provider, logo, title, description, duration}) {
 
   return (
     <div className="bg-white border border-[#E0E0E0] rounded-md shadow-sm overflow-hidden min-h-[400px] flex flex-col justify-between">
@@ -36,13 +36,21 @@ export default function TrainingCard( {banner, provider, logo, title, descriptio
               {provider}
             </p>
           </div>
-
           <h3 className="text-base font-semibold text-black leading-tight line-clamp-2">
             {title}
           </h3>
-          <p className="text-sm text-[#5B5B5B] line-clamp-3">
-            {description}
-          </p>
+          <div className="flex flex-row gap-1">
+            <p className="font-semibold text-[12px] leading-[100%] tracking-[0] tetx-[#13171B]">Durasi Pelatihan: </p>
+            <p className="font-medium text-[12px] leading-[100%] tracking-[0] text-[#35414D]">{duration}</p>
+          </div>
+          
+          <div className="flex flex-col gap-1">
+            <p className="font-semibold text-[12px] leading-[100%] tracking-[0] text-[#13171B]">Deskripsi</p>
+            <p className="text-sm text-[#5B5B5B] line-clamp-3">
+              {description}
+            </p>
+          </div>
+          
         </div>
 
       <div className="flex flex-row justify-between px-4 pb-4 gap-[72px]">
