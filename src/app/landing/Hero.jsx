@@ -63,11 +63,11 @@ export default function Hero() {
           className="w-12 h-12 md:w-16 md:h-16 rounded-[12px] md:rounded-[16px] shadow-md border border-[#F3F4F6]"
         />
       </div>
-      <div className="flex flex-col translate-y-8 md:translate-y-17 lg:translate-y-19 xl:translate-y-21 gap-3 bg-white ">
+      <div className="flex flex-col translate-y-8 md:translate-y-17 lg:translate-y-19 xl:translate-y-21 gap-3 ">
         <img
           src="/images/icon-myskill.png"
           alt="LinkedIn Learning"
-          className="w-12 h-12 md:w-16 md:h-16 rounded-[12px] md:rounded-[16px] shadow-md border border-[#F3F4F6]"
+          className="w-12 h-12 bg-white md:w-16 md:h-16 rounded-[12px] md:rounded-[16px] shadow-md border border-[#F3F4F6]"
         />
       </div>
     </div>

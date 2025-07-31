@@ -51,7 +51,7 @@ export default function Roadmap() {
 
           <div className="max-w-[248px] h-[48px] mx-auto">
             <Link href="/roadmap">
-              <Button className="w-full h-[48px]">Lihat Roadmap Saya</Button>
+              <Button large showRightIcon={true} rightIcon={<img src="/images/icon-right.png"/>}  className="w-full h-[48px]">Lihat Roadmap Saya</Button>
             </Link>
           </div>
         </div>

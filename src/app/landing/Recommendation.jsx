@@ -47,9 +47,9 @@ export default function Recommendation() {
                 />
             </div>
 
-            <div className="w-full max-w-[395px]">
+            <div className="w-full max-w-[305px]">
                 <Link href="/certifications">
-                    <Button className="w-full">Lihat Rekomendasi Untukmu</Button>
+                    <Button large showRightIcon={true} rightIcon={<img src="/images/icon-right.png"/>} className="w-full">Lihat Rekomendasi Untukmu</Button>
                 </Link>
             </div>
         </section>

@@ -71,7 +71,7 @@ export default function About() {
           {/* Button */}
           <div className="w-fit">
             <Link href="#recommendation">
-              <Button className="large">Mulai Eksplorasi</Button>
+              <Button large showRightIcon={true} rightIcon={<img src="images/icon-globe.png" />}  >Mulai Eksplorasi</Button>
             </Link>
           </div>
         </div>

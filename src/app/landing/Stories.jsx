@@ -55,7 +55,7 @@ export default function Stories() {
 
                     <div className="w-full max-w-[305px]">
                         <Link href="/stories">
-                            <Button className="w-full h-full">Jelajahi Cerita Karier Nyata</Button>
+                            <Button  large showRightIcon={true} rightIcon={<img src="/images/icon-right.png"/>} className="w-full h-full">Jelajahi Cerita Karier Nyata</Button>
                         </Link>
                     </div>
                 </div>

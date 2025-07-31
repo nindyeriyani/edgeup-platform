@@ -13,9 +13,9 @@ export default function JobTrends() {
                     <p className="font-normal text-base md:text-[20px] leading-relaxed md:leading-[120%] text-[#000000]">
                         Pantau perkembangan kebutuhan karier di berbagai industri dengan data terkini dari berbagai sumber.
                     </p>
-                    <div className="w-full md:max-w-[256px] mx-auto md:mx-0">
+                    <div className="w-full md:max-w-[260px] mx-auto md:mx-0">
                         <Link href="/job-trends">
-                            <Button className="large w-full">Lihat Tren Karir Terkini</Button>
+                            <Button large showRightIcon={true} rightIcon={<img src="/images/icon-right.png"/>} className=" w-full">Lihat Tren Karir Terkini</Button>
                         </Link>
                     </div>
                 </div>
