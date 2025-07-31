@@ -2,9 +2,9 @@
 
 import { useParams } from "next/navigation";
 import { useSearchParams, useRouter } from "next/navigation";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Button from "./Button";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Button from "@/components/Button";
 import { ArrowLeft, Share2, MoreVertical } from "lucide-react";
 import Image from "next/image";
 import { RotateCcw } from "lucide-react";
@@ -15,7 +15,6 @@ export default function DetailErrorState() {
   const router = useRouter();
 
   const handleRetry = () => {
-    // Use router.refresh() instead of window.location.reload()
     router.refresh();
   };
 
@@ -23,34 +22,34 @@ export default function DetailErrorState() {
     <div className="flex flex-col min-h-screen">
       <Navbar active="certifications" />
       <main className="flex-grow bg-gray-100 pt-30 pb-20">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto px-4">
           {/* Back */}
-          <div className="mb-6 flex items-center justify-between gap-2 text-[#13171B]">
-            <div className="flex items-center gap-5 cursor-pointer">
-              <div
-                onClick={() => {
-                  if (fromQuery) {
-                    router.push(
-                      `/certifications/${encodeURIComponent(fromQuery)}`
-                    );
-                  } else {
-                    router.push("/certifications");
-                  }
-                }}
-                className="p-2 border rounded-lg text-[#0BB0BF]"
-              >
+          <div className="mb-6 flex flex-row sm:flex-row sm:items-center sm:justify-between gap-4 text-[#13171B]">
+            <div
+              className="flex items-center gap-4 cursor-pointer"
+              onClick={() => {
+                router.push(
+                  fromQuery
+                    ? `/certifications/${encodeURIComponent(fromQuery)}`
+                    : "/certifications"
+                );
+              }}
+            >
+              <div className="p-2 border rounded-lg text-[#0BB0BF]">
                 <ArrowLeft size={20} />
               </div>
-
-              <span className="text-2xl font-semibold">
+              <span className="text-lg sm:text-xl font-semibold">
                 Rekomendasi Pelatihan & Sertifikasi
               </span>
             </div>
-            <div className="flex gap-4 mt-8">
-              <button className="p-2 border rounded-md text-[#0BB0BF]">
+            <div className="flex gap-3 sm:gap-4 flex-shrink-0">
+              <button
+                className="w-10 h-10 flex items-center justify-center border rounded-md text-[#0BB0BF] hover:bg-[#e7e7e7] transition"
+                title="Salin link pelatihan"
+              >
                 <Share2 size={20} />
               </button>
-              <button className="p-2 border rounded-md text-[#0BB0BF]">
+              <button className="w-10 h-10 flex items-center justify-center border rounded-md text-[#0BB0BF]">
                 <MoreVertical size={20} />
               </button>
             </div>
@@ -66,7 +65,7 @@ export default function DetailErrorState() {
                 height={200}
               />
             </div>
-            <p className="text-black mb-6 text-lg">
+            <p className="text-black mb-6 text-lg text-center">
               Ups, kami belum bisa menampilkan data. Silakan refresh!
             </p>
             <div className="flex justify-center">

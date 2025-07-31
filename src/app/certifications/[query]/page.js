@@ -24,11 +24,9 @@ export default function CertificationSearchResultPage() {
   const [filters, setFilters] = useState({ levels: [] });
   const [error, setError] = useState(false);
 
-  // Normalisasi teks
   const normalize = (text) =>
     text?.toLowerCase().replace(/[^a-z0-9]+/g, "") ?? "";
 
-  // Potong deskripsi
   const truncateText = (text, maxLength = 300) => {
     if (!text) return "";
     return text.length <= maxLength
@@ -36,52 +34,95 @@ export default function CertificationSearchResultPage() {
       : text.substring(0, maxLength).trim() + "...";
   };
 
+  const extractTagsAndPaths = (input) => {
+    const keywords = input.toLowerCase().split(/\s+/);
+    const matchedTags = [];
+    const matchedPaths = [];
+
+    const allTags = [
+      "ai",
+      "data",
+      "cloud computing",
+      "front end",
+      "back end",
+      "devops",
+      "flutter",
+      "mobile development",
+      "machine learning",
+      "programming language",
+    ];
+
+    const allPaths = [
+      "data scientist",
+      "front-end web",
+      "back-end",
+      "devops engineer",
+      "mobile developer",
+      "machine learning engineer",
+    ];
+
+    for (const keyword of keywords) {
+      for (const tag of allTags) {
+        if (tag.includes(keyword) && !matchedTags.includes(tag)) {
+          matchedTags.push(tag);
+        }
+      }
+      for (const path of allPaths) {
+        if (path.includes(keyword) && !matchedPaths.includes(path)) {
+          matchedPaths.push(path);
+        }
+      }
+    }
+
+    return { matchedTags, matchedPaths };
+  };
+
   useEffect(() => {
     if (!rawData || typeof rawData !== "object") setError(true);
   }, []);
+
+  const { matchedTags, matchedPaths } = extractTagsAndPaths(searchInput);
 
   const allRoles = Object.entries(rawData).map(([role, data]) => ({
     role,
     ...data,
   }));
 
-  const filteredRoles = allRoles.filter((item) => {
-    const normalizedQuery = normalize(searchInput);
-    const normalizedRole = normalize(item.role);
-    const normalizedTopicTags = (item.associated_topic_tags || []).map(
-      normalize
-    );
-    const normalizedLearningPaths = (item.associated_learning_paths || []).map(
-      normalize
-    );
-
-    return (
-      normalizedRole.includes(normalizedQuery) ||
-      normalizedTopicTags.some((tag) => tag.includes(normalizedQuery)) ||
-      normalizedLearningPaths.some((path) => path.includes(normalizedQuery)) ||
-      searchInput === ""
-    );
-  });
-
-  const filteredTrainings = filteredRoles
+  const filteredTrainings = allRoles
     .flatMap((item) => item.recommended_courses || [])
     .filter((course) => {
+      const courseTags = (course.topic_tags || []).map((tag) =>
+        tag.toLowerCase()
+      );
+      const coursePaths = (course.learning_path || []).map((path) =>
+        path.toLowerCase()
+      );
+
+      const tagMatch =
+        matchedTags.length > 0 &&
+        matchedTags.some((tag) => courseTags.includes(tag));
+
+      const pathMatch =
+        matchedPaths.length > 0 &&
+        matchedPaths.some((path) => coursePaths.includes(path));
+
       const courseLevel = (course.level || "").toLowerCase();
       let normalizedLevel = "";
-
       if (courseLevel.includes("dasar")) normalizedLevel = "beginner";
       else if (courseLevel.includes("menengah"))
         normalizedLevel = "intermediate";
       else if (courseLevel.includes("mahir")) normalizedLevel = "advanced";
 
-      return (
-        filters.levels.length === 0 || filters.levels.includes(normalizedLevel)
-      );
+      const levelMatch =
+        filters.levels.length === 0 || filters.levels.includes(normalizedLevel);
+
+      return tagMatch && pathMatch && levelMatch;
     });
 
   if (error) return <ErrorState />;
-  if (filteredTrainings.length === 0 && searchInput !== "")
+  if (filteredTrainings.length === 0 && searchInput !== "") {
     return <EmptyState searchQuery={searchInput} />;
+  }
 
   return (
     <div className="flex flex-col min-h-screen">

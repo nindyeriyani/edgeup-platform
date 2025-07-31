@@ -1,6 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
+import { useState, useEffect } from "react";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
@@ -10,10 +12,21 @@ import { RotateCcw } from "lucide-react";
 
 export default function ErrorState() {
   const router = useRouter();
+  const params = useParams();
+
+  // Ambil query dari URL, dan gunakan sebagai isi awal SearchBar
+  const initialQuery = decodeURIComponent(params?.query || "");
+  const [searchInput, setSearchInput] = useState(initialQuery);
 
   const handleRetry = () => {
-    // Use router.refresh() instead of window.location.reload()
+    // Refresh halaman (gunakan Next.js method)
     router.refresh();
+  };
+
+  const handleSearch = (keyword) => {
+    if (!keyword) return;
+    // Arahkan ulang ke hasil pencarian baru
+    router.push(`/certifications/${encodeURIComponent(keyword)}`);
   };
 
   return (
@@ -24,14 +37,17 @@ export default function ErrorState() {
           <h1 className="text-2xl md:text-3xl font-semibold text-black mb-8">
             Rekomendasi Pelatihan & Sertifikasi
           </h1>
+
+          {/* Search bar bisa diketik, clear, dan cari ulang */}
           <div className="w-full max-w-xl mx-auto mb-10">
             <SearchBar
-              query="SQL untuk Data Analyst"
-              setQuery={() => {}}
-              onSearch={() => {}}
-              disabled
+              query={searchInput}
+              setQuery={setSearchInput}
+              onSearch={handleSearch}
             />
           </div>
+
+          {/* Icon error */}
           <div className="mb-8 flex justify-center">
             <Image
               src="/images/error-network.png"
@@ -40,6 +56,8 @@ export default function ErrorState() {
               height={200}
             />
           </div>
+
+          {/* Pesan dan tombol ulang */}
           <p className="text-black mb-6 text-lg">
             Sepertinya koneksimu sedang tidak stabil. Coba periksa dulu ya!
           </p>
