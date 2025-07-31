@@ -7,7 +7,7 @@ import Button from "./SecondaryButton";
 export default function TrainingCard( {banner, provider, logo, title, description, duration}) {
 
   return (
-    <div className="bg-white border border-[#E0E0E0] rounded-md shadow-sm overflow-hidden min-h-[400px] flex flex-col justify-between">
+    <div className="bg-white border border-[#ACB7C6] rounded-md shadow-sm overflow-hidden min-h-[400px] flex flex-col justify-between">
         <div className="relative h-[140px]">
           <Image
             src={banner}
@@ -32,7 +32,7 @@ export default function TrainingCard( {banner, provider, logo, title, descriptio
               height={40}
               className="rounded-full"
             />
-            <p className="text-sm text-[#5B5B5B] font-medium">
+            <p className="text-sm text-[#13171B] font-medium">
               {provider}
             </p>
           </div>

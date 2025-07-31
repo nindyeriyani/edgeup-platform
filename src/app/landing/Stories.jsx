@@ -1,10 +1,11 @@
 import Button from "@/components/PrimaryButton";
 import StoriesCard from "@/components/CardStoriesLandingPage";
 import MiniCardStories from "@/components/MiniCardStories";
+import Link from "next/link";
 
 export default function Stories() {
     return (
-        <section className=" bg-[#FFFFFF] my-[80px] mx-[84px] border border-[#ACB7C6] rounded-[12px] py-[40px] px-[40px] flex flex-col items-center gap-[32px]">
+        <section id="stories" className=" bg-[#FFFFFF] my-[80px] mx-[84px] border border-[#ACB7C6] rounded-[12px] py-[40px] px-[40px] flex flex-col items-center gap-[32px]">
             <div >
                 <p className=" font-semibold text-[40px] landing-[110%] text-[#13171B]">Learn from Those Who’ve Been There</p>
             </div>
@@ -44,7 +45,9 @@ export default function Stories() {
                         Baca cerita keseharian para profesional teknologi mulai dari gaya kerja, tantangan, dan insight pribadi yang relatable.
                     </p>
                     <div className="max-w-[305px] max-h-[48px]">
-                        <Button className="w-full h-full">Jelajahi Cerita Karier Nyata</Button>
+                        <Link href="/stories">
+                            <Button className="w-full h-full">Jelajahi Cerita Karier Nyata</Button>
+                        </Link>  
                 </div>
             </div>
         </div>

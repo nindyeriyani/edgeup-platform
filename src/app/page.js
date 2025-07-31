@@ -17,7 +17,6 @@ export default function Home() {
         <JobTrends />
         <Stories />
         <Roadmap />
-    
       </main>
       <Footer />
     </div>

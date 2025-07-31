@@ -1,9 +1,9 @@
 import PrimaryButton from "@/components/PrimaryButton";
 import SecondaryButton from "@/components/SecondaryButton";
-
+import Link from "next/link";
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-b from-[#E7FDFF] to-[#FFFFFF] py-20 text-center overflow-hidden max-h-[820px] ">
+    <section id="hero" className="relative bg-gradient-to-b from-[#E7FDFF] to-[#FFFFFF] py-20 text-center overflow-hidden max-h-[820px] ">
         <div className="grid grid-cols-[1fr_2fr_1fr] gap-1 md:gap-2 md:gap-4 lg:gap-6 xl:gap-10">
             {/* kolom kiri */}
             <div className="flex justify-start pl-1 md:pl-20 lg:pl-24 xl:pl-30 gap-1 md:gap-2 lg:gap-3 xl:gap-4 ">
@@ -47,11 +47,16 @@ export default function Hero() {
                         lg:gap-[14px]
                         xl:gap-[16px]
                         ">
-                    <PrimaryButton className="large">
+                    <Link href="#recommendation">
+                        <PrimaryButton className="large">
                         Yuk Mulai Belajar Sekarang    
-                    </PrimaryButton>
-                    <SecondaryButton className="small" >
+                        </PrimaryButton>
+                    </Link>
+                    <Link href="#about">
+                        <SecondaryButton className="small" >
                         Pelajari Dulu</SecondaryButton>
+                    </Link>
+                    
                 </div>
             </div>
 
