@@ -18,8 +18,8 @@ export default function StoriesCard({ title, name, role, company, date, desc, im
             </div>
         </div>
         {/* Description */}
-        <div className="w-[398px]">
-            <p className="w-full font-normal text-[14px] leading-[1.4] text-[#000000B2]">{desc}</p>
+        <div className="md:w-[398px] w-[320px]">
+            <p className="w-fit font-normal text-[14px] leading-[1.4] text-[#000000B2]">{desc}</p>
         </div>
         
         {/* Footer */}

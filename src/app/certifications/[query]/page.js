@@ -160,7 +160,7 @@ export default function CertificationSearchResultPage() {
             <div className="flex-1">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-4">
                 <h2 className="text-lg font-semibold text-black">
-                  Hasil dari "{searchInput}"
+                  Hasil dari &quot;{searchInput}&quot;
                 </h2>
                 <div className="text-sm font-semibold text-gray-700">
                   Sort by: <span className="font-normal">Most relevant</span>

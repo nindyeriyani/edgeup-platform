@@ -4,9 +4,9 @@ import Link from "next/link";
 export default function About() {
   return (
     <section id="about" className="bg-white mt-20 w-full">
-      <div className="flex flex-col gap-12 md:gap-16 items-center max-w-screen px-4 sm:px-6 md:px-12 py-10 sm:py-[60px]">
+      <div className="flex flex-col gap-12 md:gap-16 items-center  max-w-screen px-4 sm:px-6 md:px-12 py-10 sm:py-[60px]">
         {/* Frame 1 */}
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 w-full max-w-6xl">
+        <div className="flex flex-col md:flex-row md:justify-center items-center gap-8 md:gap-12 w-full">
           <img
             src="/images/cuate.png"
             alt="about-image"
