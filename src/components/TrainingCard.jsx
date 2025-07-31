@@ -9,7 +9,7 @@ export default function TrainingCard({ data }) {
   const [copied, setCopied] = useState(false);
 
   const handleShare = (e) => {
-    e.stopPropagation(); // ⛔️ Stop bubbling to Link
+    e.stopPropagation();
     if (data.link) {
       navigator.clipboard.writeText(data.link).then(() => {
         setCopied(true);

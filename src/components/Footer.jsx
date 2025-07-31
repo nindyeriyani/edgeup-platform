@@ -1,18 +1,19 @@
+"use client";
 import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#13171B] text-white px-8 py-12">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+    <footer className="bg-[#13171B] text-white px-6 md:px-8 py-12">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10">
         {/* Left Section */}
-        <div className="space-y-5">
+        <div className="space-y-5 md:w-1/3">
           {/* Logo */}
           <Image
             src="/images/logo-edgeup.png"
             alt="Logo EdgeUp"
             width={152}
             height={36}
-            className="mb-16"
+            className="mb-10"
           />
 
           {/* Social Icons */}
@@ -53,8 +54,9 @@ export default function Footer() {
         </div>
 
         {/* Navigation Columns */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-sm">
-          <div>
+        <div className="grid grid-cols-2 gap-x-10 gap-y-8 text-sm md:grid-cols-4 md:gap-x-14">
+          {/* Tentang EdgeUp */}
+          <div className="order-1 md:order-1">
             <h4 className="font-semibold mb-3">Tentang EdgeUp</h4>
             <ul className="space-y-3 text-white">
               <li>
@@ -65,7 +67,22 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div>
+
+          {/* Bantuan */}
+          <div className="order-2 md:order-3">
+            <h4 className="font-semibold mb-3">Bantuan</h4>
+            <ul className="space-y-3 text-white">
+              <li>
+                <a href="#">FAQ</a>
+              </li>
+              <li>
+                <a href="#">Kontak</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Fitur */}
+          <div className="order-3 md:order-2">
             <h4 className="font-semibold mb-3">Fitur</h4>
             <ul className="space-y-3 text-white">
               <li>
@@ -82,18 +99,9 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div>
-            <h4 className="font-semibold mb-3">Bantuan</h4>
-            <ul className="space-y-3 text-white">
-              <li>
-                <a href="#">FAQ</a>
-              </li>
-              <li>
-                <a href="#">Kontak</a>
-              </li>
-            </ul>
-          </div>
-          <div className="-ml-10">
+
+          {/* Legal */}
+          <div className="order-4 md:order-4">
             <h4 className="font-semibold mb-3">Legal</h4>
             <ul className="space-y-3 text-white">
               <li>
