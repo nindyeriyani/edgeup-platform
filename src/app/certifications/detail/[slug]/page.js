@@ -17,6 +17,7 @@ import {
   ArrowRight,
   Check,
 } from "lucide-react";
+import DetailErrorState from "@/components/DetailErrorState";
 
 export default function CertificationDetailPage() {
   const params = useParams();
@@ -51,6 +52,8 @@ export default function CertificationDetailPage() {
       ? text
       : text.substring(0, maxLength).trim() + "...";
   };
+
+  if (error) return <DetailErrorState />;
 
   return (
     <div className="flex flex-col min-h-screen">

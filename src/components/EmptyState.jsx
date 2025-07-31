@@ -1,17 +1,20 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
+import { useState, useEffect } from "react";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
 import Image from "next/image";
 import Tag from "@/components/Tag";
 import TrainingCard from "@/components/TrainingCard";
-import trainings from "@/data/mockTraining";
+import trainings from "@/data/frontend_output.json";
 
 export default function EmptyState({ searchQuery }) {
   const router = useRouter();
+  const params = useParams();
+  const initialQuery = decodeURIComponent(params?.query || "");
   const [searchInput, setSearchInput] = useState(searchQuery || "");
 
   const handleSearch = (keyword) => {
@@ -59,9 +62,22 @@ export default function EmptyState({ searchQuery }) {
             Lihat rekomendasi lainnya
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {trainings.slice(0, 4).map((training, index) => (
-              <TrainingCard key={index} data={training} />
-            ))}
+            {Object.entries(trainings)
+              .slice(0, 4)
+              .map(([role, data], index) => (
+                <TrainingCard
+                  key={index}
+                  data={{
+                    image: data.recommended_courses?.[0]?.image_preview_course,
+                    logo: data.recommended_courses?.[0]?.course_logo,
+                    provider: data.recommended_courses?.[0]?.course_name,
+                    title: data.recommended_courses?.[0]?.title,
+                    description: data.recommended_courses?.[0]?.descriptions,
+                    link: data.recommended_courses?.[0]?.link_url,
+                    detailLink: `/certifications/detail/${data.recommended_courses?.[0]?.title}`,
+                  }}
+                />
+              ))}
           </div>
         </section>
       </main>
