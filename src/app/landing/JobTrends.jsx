@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/PrimaryButton";
 
 export default function JobTrends() {
     return (
@@ -8,8 +8,8 @@ export default function JobTrends() {
                     <p className="font-semibold text-[40px] leading-[110%] text-[#000000]">Explore the Latest Job Trends</p>
                     <p className="font-normal text-[20px] leading-[120%] text-[#000000]">
                         Pantau perkembangan kebutuhan karier di berbagai industri dengan data terkini dari berbagai sumber."</p>
-                    <div>
-                        <Button className="max-w-[253px] h-[62px]"> Lihat Tren Karir Terkini</Button>
+                    <div className="max-w-[256px]">
+                        <Button className=" large "> Lihat Tren Karir Terkini</Button>
                     </div> 
                 </div>
                 <div className="bg-[#F7F8F9] h-[382px] w-[613px] rounded-[8px] shadow-[5px_10px_10px_#0000000D]">

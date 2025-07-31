@@ -1,6 +1,5 @@
 // CareerCard component
 "use client";
-import Button from "./Button";
 
 export default function StoriesCard({ title, name, role, company, date, desc, image, location }) {
   return (

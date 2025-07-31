@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/PrimaryButton";
 import StoriesCard from "@/components/CardStoriesLandingPage";
 import MiniCardStories from "@/components/MiniCardStories";
 

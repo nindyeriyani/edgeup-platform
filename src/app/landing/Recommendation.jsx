@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/PrimaryButton";
 import TrainingCard from "@/components/MiniTrainingCard";
 export default function Recommendation() {
     return (

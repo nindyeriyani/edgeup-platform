@@ -2,7 +2,7 @@
 
 import { Share2, Check } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import Button from "./SecondaryButton";
 
 export default function TrainingCard( {banner, provider, logo, title, description}) {
 
@@ -45,13 +45,13 @@ export default function TrainingCard( {banner, provider, logo, title, descriptio
           </p>
         </div>
 
-      <div className="px-4 pb-4">
-        <div
-          className="p-2 border rounded-lg text-[#0BB0BF] cursor-pointer hover:bg-[#f1f1f1] transition w-fit"
-          title="Copy link to clipboard"
-        ><Share2></Share2>
-          
-        </div>
+      <div className="flex flex-row justify-between px-4 pb-4 gap-[72px]">
+        <Button className="noActive noHover">
+            Lihat Detail
+        </Button>
+        <Button className= "noActive noHover">
+          <Share2></Share2>
+        </Button>        
       </div>
     </div>
   );

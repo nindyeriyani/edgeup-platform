@@ -1,6 +1,6 @@
 // CareerCard component
 "use client";
-import Button from "./Button";
+import Button from "./PrimaryButton";
 
 export default function CareerCard({ title, name, role, company, date, desc, image }) {
   return (

@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/PrimaryButton";
 export default function About() {
   return (
     <section className=" bg-[#FFFFFF] mt-20 top-[980px]  max-h-[680px] w-full">
@@ -68,7 +68,7 @@ export default function About() {
                 </div>
                 {/* Button */  }
                 <div className="max-w-[253px] h-[62px]">   
-                    <Button >Mulai Eksplorasi</Button>
+                    <Button className="large">Mulai Eksplorasi</Button>
                 </div>
             </div>
          </div>

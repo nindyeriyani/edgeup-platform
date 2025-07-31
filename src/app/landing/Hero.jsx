@@ -1,4 +1,6 @@
-import Button from "@/components/Button";
+import PrimaryButton from "@/components/PrimaryButton";
+import SecondaryButton from "@/components/SecondaryButton";
+
 export default function Hero() {
   return (
     <section className="relative bg-gradient-to-b from-[#E7FDFF] to-[#FFFFFF] py-20 text-center overflow-hidden max-h-[820px] ">
@@ -45,11 +47,11 @@ export default function Hero() {
                         lg:gap-[14px]
                         xl:gap-[16px]
                         ">
-                    <Button>
+                    <PrimaryButton className="large">
                         Yuk Mulai Belajar Sekarang    
-                    </Button>
-                    <Button >
-                        Pelajari Dulu</Button>
+                    </PrimaryButton>
+                    <SecondaryButton className="small" >
+                        Pelajari Dulu</SecondaryButton>
                 </div>
             </div>
 

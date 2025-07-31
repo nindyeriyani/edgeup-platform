@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/PrimaryButton";
 import LevelCard from "@/components/LevelCard";
 export default function Roadmap() {
     return (
