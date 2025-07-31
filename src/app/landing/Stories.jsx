@@ -7,15 +7,15 @@ export default function Stories() {
     return (
         <section
             id="stories"
-            className="bg-[#FFFFFF] my-10 mx-4 sm:mx-8 md:mx-[84px] border border-[#ACB7C6] rounded-[12px] py-8 px-4 sm:px-6 md:py-[40px] md:px-[40px] flex flex-col items-center gap-6 md:gap-[32px]"
+            className="bg-[#FFFFFF] my-10 mx-4 sm:mx-8 lg:mx-[84px] border border-[#ACB7C6] rounded-[12px] py-8 px-4 sm:px-6 lg:py-[40px] lg:px-[40px] flex flex-col items-center gap-6 lg:gap-[32px]"
         >
             <div className="text-center">
-                <p className="font-semibold text-2xl sm:text-3xl md:text-[40px] leading-[110%] text-[#13171B]">
+                <p className="font-semibold text-2xl sm:text-3xl lg:text-[40px] leading-[110%] text-[#13171B]">
                     Learn from Those Who’ve Been There
                 </p>
             </div>
 
-            <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-[67px] w-full">
+            <div className="flex flex-col lg:flex-row justify-center gap-8 lg:gap-[67px] w-full">
                 <StoriesCard
                     title="Di Balik Dashboard: Cerita Sehari Jadi Data Analyst"
                     name="Aurora"
@@ -27,8 +27,8 @@ export default function Stories() {
                     location="Jakarta"
                 />
 
-                <div className="flex flex-col gap-6 md:gap-[32px] w-full md:w-[438px] items-center">
-                    <div className="flex flex-col gap-4 md:gap-[24px] w-full">
+                <div className="flex flex-col gap-6 lg:gap-[32px] w-full lg:w-[438px] items-center">
+                    <div className="flex flex-col gap-4 lg:gap-[24px] w-full">
                         <MiniCardStories
                             title="Hidup Engineer: Seru atau Pusing?"
                             name="Dimas"

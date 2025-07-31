@@ -6,18 +6,18 @@ export default function Recommendation() {
     return (
         <section
             id="recommendation"
-            className="flex flex-col mx-12 items-center justify-center gap-6 bg-white py-10 px-6 md:px-[88px] my-16 border border-[#ACB7C6] rounded-[12px]"
+            className="flex flex-col my-10 mx-4 sm:mx-8 lg:mx-[84px] items-center justify-center gap-6 bg-white py-10 px-6 lg:px-[88px] my-16 border border-[#ACB7C6] rounded-[12px]"
         >
             <div className="flex flex-col items-center max-w-[864px] text-center gap-2">
-                <p className="font-semibold text-[28px] md:text-[40px] leading-[110%] text-black">
+                <p className="font-semibold text-[28px] lg:text-[40px] leading-[110%] text-black">
                     Train Smart, Get Certified, Go Further
                 </p>
-                <p className="text-[16px] md:text-[20px] leading-[120%] text-black">
+                <p className="text-[16px] lg:text-[20px] leading-[120%] text-black">
                     Cari tahu rekomendasi pelatihan dan sertifikasi terbaik buat upgrade skill kariermu
                 </p>
             </div>
 
-            <div className="flex flex-col md:flex-row gap-6 md:gap-[27px] items-center md:items-stretch w-full justify-center">
+            <div className="flex flex-col lg:flex-row gap-6 md:gap-[27px] items-center lg:items-stretch w-full justify-center">
                 <TrainingCard
                     banner="/images/banner-coursera.png"
                     logo="/images/logo-course.png"

@@ -10,7 +10,7 @@ function FallbackPage() {
   return (
     <section className="flex flex-col items-center mx-auto gap-4 py-24 px-4 text-center">
       <div className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] p-[16px] overflow-hidden">
-        <img
+        <image
           src="/images/fallback-stories-page.png"
           alt="fallback"
           className="w-full h-full object-cover"
