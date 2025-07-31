@@ -62,9 +62,7 @@ export default function JobTrendsPage() {
                           }}
                         >
                           <p style={{ margin: 0 }}>
-                            <span style={{ fontWeight: "bold" }}>
-                              {label}
-                            </span>{" "}
+                            <span style={{ fontWeight: "bold" }}>{label}</span>{" "}
                           </p>
                           <p style={{ color: "#00aa77", margin: 0 }}>
                             <span style={{ fontWeight: "bold" }}>

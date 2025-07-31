@@ -2,17 +2,18 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import Image from "next/image";
+import slugify from "slugify";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
 import FilterSidebar from "@/components/FilterSidebar";
 import TrainingCard from "@/components/TrainingCard";
 import ErrorState from "@/components/ErrorState";
-import Image from "next/image";
-import Link from "next/link";
-import slugify from "slugify";
-import rawData from "@/data/frontend_output.json";
 import EmptyState from "@/components/EmptyState";
+
+import rawData from "@/data/frontend_output.json";
 
 export default function CertificationSearchResultPage() {
   const router = useRouter();
@@ -23,29 +24,22 @@ export default function CertificationSearchResultPage() {
   const [filters, setFilters] = useState({ levels: [] });
   const [error, setError] = useState(false);
 
-  // Truncate text function
-  const truncateText = (text, maxLength = 300) => {
-    if (!text) return "";
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength).trim() + "...";
-  };
-
-  // Check for data loading errors
-  useEffect(() => {
-    try {
-      if (!rawData || typeof rawData !== "object") {
-        setError(true);
-      }
-    } catch (err) {
-      setError(true);
-    }
-  }, []);
-
   // Normalisasi teks
   const normalize = (text) =>
     text?.toLowerCase().replace(/[^a-z0-9]+/g, "") ?? "";
 
-  // Transform the object into an array of roles with their data
+  // Potong deskripsi
+  const truncateText = (text, maxLength = 300) => {
+    if (!text) return "";
+    return text.length <= maxLength
+      ? text
+      : text.substring(0, maxLength).trim() + "...";
+  };
+
+  useEffect(() => {
+    if (!rawData || typeof rawData !== "object") setError(true);
+  }, []);
+
   const allRoles = Object.entries(rawData).map(([role, data]) => ({
     role,
     ...data,
@@ -61,52 +55,39 @@ export default function CertificationSearchResultPage() {
       normalize
     );
 
-    // Match if query is in any topic tag or learning path
-    const matchQuery =
+    return (
       normalizedRole.includes(normalizedQuery) ||
       normalizedTopicTags.some((tag) => tag.includes(normalizedQuery)) ||
       normalizedLearningPaths.some((path) => path.includes(normalizedQuery)) ||
-      searchInput === "";
-
-    return matchQuery;
+      searchInput === ""
+    );
   });
 
   const filteredTrainings = filteredRoles
     .flatMap((item) => item.recommended_courses || [])
     .filter((course) => {
-      // Normalize course level
       const courseLevel = (course.level || "").toLowerCase();
       let normalizedLevel = "";
-      if (courseLevel.includes("dasar")) {
-        normalizedLevel = "beginner";
-      } else if (courseLevel.includes("menengah")) {
-        normalizedLevel = "intermediate";
-      } else if (courseLevel.includes("mahir")) {
-        normalizedLevel = "advanced";
-      }
 
-      // If no levels are selected, show all
-      if (filters.levels.length === 0) return true;
-      // Otherwise, only show if the course's normalized level is in the selected levels
-      return filters.levels.includes(normalizedLevel);
+      if (courseLevel.includes("dasar")) normalizedLevel = "beginner";
+      else if (courseLevel.includes("menengah"))
+        normalizedLevel = "intermediate";
+      else if (courseLevel.includes("mahir")) normalizedLevel = "advanced";
+
+      return (
+        filters.levels.length === 0 || filters.levels.includes(normalizedLevel)
+      );
     });
 
-  // If there's an error, render ErrorState
-  if (error) {
-    return <ErrorState />;
-  }
-
-  // If no results, render EmptyState page
-  if (filteredTrainings.length === 0 && searchInput !== "") {
+  if (error) return <ErrorState />;
+  if (filteredTrainings.length === 0 && searchInput !== "")
     return <EmptyState searchQuery={searchInput} />;
-  }
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar active="certifications" />
       <main className="flex-grow bg-gray-100 pt-20">
         <section className="py-12 px-4 max-w-7xl mx-auto">
-          {/* Heading */}
           <div className="text-center mb-10">
             <h1 className="text-3xl md:text-4xl font-semibold text-black mb-2">
               Rekomendasi Pelatihan & Sertifikasi
@@ -116,7 +97,6 @@ export default function CertificationSearchResultPage() {
             </p>
           </div>
 
-          {/* Search */}
           <div className="mb-8">
             <SearchBar
               query={searchInput}
@@ -127,21 +107,22 @@ export default function CertificationSearchResultPage() {
             />
           </div>
 
-          {/* Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-10">
-            <FilterSidebar
-              onChange={(newFilters) =>
-                setFilters((prev) => ({ ...prev, ...newFilters }))
-              }
-            />
+          <div className="flex flex-col lg:flex-row gap-10">
+            <div className="lg:w-[240px] w-full">
+              <FilterSidebar
+                onChange={(newFilters) =>
+                  setFilters((prev) => ({ ...prev, ...newFilters }))
+                }
+              />
+            </div>
 
-            <div>
-              <div className="flex justify-between items-center mb-6">
+            <div className="flex-1">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-4">
                 <h2 className="text-lg font-semibold text-black">
                   Hasil dari "{searchInput}"
                 </h2>
                 <div className="text-sm font-semibold text-gray-700">
-                  Sort by: <span className="font-normal">Most relevant</span>{" "}
+                  Sort by: <span className="font-normal">Most relevant</span>
                   <Image
                     src="/images/icon-sort.png"
                     alt="Sort Icon"
@@ -152,8 +133,7 @@ export default function CertificationSearchResultPage() {
                 </div>
               </div>
 
-              {/* Card Results */}
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                 {filteredTrainings.map((training, index) => (
                   <TrainingCard
                     key={index}
@@ -166,9 +146,7 @@ export default function CertificationSearchResultPage() {
                       link: training.link_url,
                       detailLink: `/certifications/detail/${slugify(
                         training.title,
-                        {
-                          lower: true,
-                        }
+                        { lower: true }
                       )}?from=${encodeURIComponent(searchInput)}`,
                     }}
                   />
