@@ -6,7 +6,7 @@ export default function Recommendation() {
     return (
         <section
             id="recommendation"
-            className="flex flex-col items-center justify-center gap-6 bg-white py-10 px-6 md:px-[88px] my-16 border border-[#ACB7C6] rounded-[12px]"
+            className="flex flex-col mx-12 items-center justify-center gap-6 bg-white py-10 px-6 md:px-[88px] my-16 border border-[#ACB7C6] rounded-[12px]"
         >
             <div className="flex flex-col items-center max-w-[864px] text-center gap-2">
                 <p className="font-semibold text-[28px] md:text-[40px] leading-[110%] text-black">
