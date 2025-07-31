@@ -3,17 +3,19 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Button from "@/components/PrimaryButton";
 import ProfileCard from "@/components/BigProfileCard";
-const stories = await import('@/data/stories.json').then(mod => mod.default);
+const stories = await import("@/data/stories.json").then((mod) => mod.default);
 import Link from "next/link";
+import Image from "next/image";
 
 function FallbackPage() {
   return (
     <section className="flex flex-col items-center mx-auto gap-4 py-24 px-4 text-center">
       <div className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] p-[16px] overflow-hidden">
-        <image
+        <Image
           src="/images/fallback-stories-page.png"
           alt="fallback"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
         />
       </div>
       <p className="font-semibold text-[20px] sm:text-[24px] leading-[120%] text-[#13171B]">
@@ -44,9 +46,11 @@ export default function StoryPage({ params }) {
         ) : (
           <section className="flex flex-col items-center py-8 px-4 md:px-32">
             <div className="flex flex-col mx-auto gap-6 justify-center w-full max-w-6xl">
-              <img
+              <Image
                 src={story.banner}
                 alt="Story Image"
+                width={1200}
+                height={300} 
                 className="w-full max-h-[300px] object-cover rounded-md"
               />
               <h1 className="text-[24px] md:text-[32px] font-semibold leading-[120%] text-center text-[#13171B]">

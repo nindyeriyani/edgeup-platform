@@ -7,6 +7,7 @@ import SecondaryButton from "@/components/SecondaryButton";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import roadmapData from "@/data/roadmapData";
+import Image from "next/image";
 
 export default function RoadmapPage() {
   const params = useParams();
@@ -31,27 +32,33 @@ export default function RoadmapPage() {
             <div className="flex flex-col justify-center md:flex-row gap-6 items-center md:px-48 md:items-start text-center md:text-left">
               <div className="w-[160px] h-[160px] sm:w-[220px] sm:h-[220px] md:w-96 md:h-56">
                 {roadmap === null ? (
-                  <img
+                  <Image
                     src="/images/icon-roadmap-page.png"
                     alt="icon"
-                    className="w-full h-full object-contain"
+                    width={400}
+                    height={200}
+                    className="w-full h-auto lg:w-[400px] lg:h-[200px] object-contain"
                   />
                 ) : !roadmap.found ? (
-                  <img
+                  <Image
                     src="/images/fallback-roadmap-page.png"
                     alt="fallback"
-                    className="w-full h-full object-contain"
+                    width={400}
+                    height={200}
+                    className="w-full h-auto lg:w-[400px] lg:h-[200px] object-contain"
                   />
                 ) : null}
               </div>
 
               <div className="flex flex-col   gap-4 ">
                 <p className="font-semibold  text-[24px] sm:text-[32px] md:text-[40px] leading-[110%] text-[#13171B]">
-                  {roadmap === null
-                    ? "Yuk, cari tahu arah karier kamu!"
-                    : !roadmap.found
-                    ? <span>&quot;Oops.. <br /> Belum ada roadmap untuk minat kamu&quot;</span>
-                    : null}
+                  {roadmap === null ? (
+                    "Yuk, cari tahu arah karier kamu!"
+                  ) : !roadmap.found ? (
+                    <span>
+                      Oops.. <br /> Belum ada roadmap untuk minat kamu
+                    </span>
+                  ) : null}
                 </p>
                 <p className="font-normal text-[14px] sm:text-[16px] leading-[140%] text-[#13171B]">
                   {roadmap === null
