@@ -1,62 +1,66 @@
 {
-  "career_path": "Data Analyst",
-  "levels": [
-    {
-      "level": "Entry-Level",
-      "title": "Junior Data Analyst",
-      "skills": [
-        "Dasar-dasar SQL",
-        "Excel / Spreadsheet",
-        "Pahami alur bisnis sederhana"
-      ],
-      "tools": [
-        "Excel",
-        "MySQL",
-        "Looker"
-      ],
-      "certifications": [
-        "Belajar dasar SQL",
-        "SQL Interactive Course",
-        "Learning SQL for Data Analytics"
-      ]
-    },
-    {
-      "level": "Mid-Level",
-      "title": "Data Analyst",
-      "skills": [
-        "Advanced SQL",
-        "Kolaborasi tim produk",
-        "Python dasar (pandas, numpy)"
-      ],
-      "tools": [
-        "BigQuery",
-        "Tableau",
-        "Python"
-      ],
-      "certifications": [
-        "Intermediate SQL",
-        "BI & Dashboard",
-        "Python for Data Analysis"
-      ]
-    },
-    {
-      "level": "Senior-Level",
-      "title": "Lead Data Analyst",
-      "skills": [
-        "Data modeling",
-        "Stakeholder management",
-        "SQL tuning & pipeline"
-      ],
-      "tools": [
-        "dbt / Airflow",
-        "SQL (expert)",
-        "Mode Analytics"
-      ],
-      "certifications": [
-        "SQL Expert",
-        "Data Leadership",
-        "Advanced Analytics"
-      ]
-    }
-  ]
+  "Data Analyst" : {
+    "levels": [
+      {
+       
+        "level": "Entry-Level",
+        "role": "Junior Data Analyst",
+        "skills": [
+          "Dasar-dasar SQL",
+          "Excel / Spreadsheet",
+          "Pahami alur bisnis sederhana"
+        ],
+        "tools": [
+          "Excel",
+          "MySQL",
+          "Looker"
+        ],
+        "certifications": [
+          "Belajar dasar SQL",
+          "SQL Interactive Course",
+          "Learning SQL for Data Analytics"
+        ]
+      },
+      {
+        
+        "level": "Mid-Level",
+        "role": "Data Analyst",
+        "skills": [
+          "Advanced SQL",
+          "Kolaborasi tim produk",
+          "Python dasar (pandas, numpy)"
+        ],
+        "tools": [
+          "BigQuery",
+          "Tableau",
+          "Python"
+        ],
+        "certifications": [
+          "Intermediate SQL",
+          "BI & Dashboard",
+          "Python for Data Analysis"
+        ]
+      },
+      {
+        
+        "level": "Senior-Level",
+        "role": "Lead Data Analyst",
+        "skills": [
+          "Data modeling",
+          "Stakeholder management",
+          "SQL tuning & pipeline"
+        ],
+        "tools": [
+          "dbt / Airflow",
+          "SQL (expert)",
+          "Mode Analytics"
+        ],
+        "certifications": [
+          "SQL Expert",
+          "Data Leadership",
+          "Advanced Analytics"
+        ]
+      }
+    ]
+  }
 }
