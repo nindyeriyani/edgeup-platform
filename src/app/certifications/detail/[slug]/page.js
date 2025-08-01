@@ -53,8 +53,6 @@ export default function CertificationDetailPage() {
       : text.substring(0, maxLength).trim() + "...";
   };
 
-  if (error) return <DetailErrorState />;
-
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar active="certifications" />
